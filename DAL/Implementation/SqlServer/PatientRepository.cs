@@ -32,9 +32,22 @@ namespace DAL.Implementation.SqlServer
             _list = new List<Patient>();
         }
         #endregion
-        public void add(Patient obj)
+        public void add(Patient patient)
         {
-            throw new NotImplementedException();
+            string commandText = "INSERT INTO Patient (idPatient, dni, name, lastName, phone, email, riskGroup, ticketNumber) VALUES (@IdPatient, @dni, @name, @lastName, @phone, @email, @riskGroup, @ticketNumber)";
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@idPatient", patient.idPatient),
+                new SqlParameter("@dni", patient.dni),
+                new SqlParameter("@name", patient.name),
+                new SqlParameter("@lastName", patient.lastName),
+                new SqlParameter("@phone", patient.phone),
+                new SqlParameter("@email", patient.email),
+                new SqlParameter("@riskGroup", patient.riskGroup),
+                new SqlParameter("@ticketNumber", patient.ticketNumber)
+            };
+
+            SqlHelper.ExecuteNonQuery(commandText, CommandType.Text, parameters);
         }
 
         public void Delete(Guid id)

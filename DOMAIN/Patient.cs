@@ -8,21 +8,21 @@ namespace DOMAIN
 {
     public class Patient
     {
-        private Guid idPatient { get; set; }
+        public Guid idPatient { get; set; }
 
-        private int dni { get; set; }
+        public int dni { get; set; }
 
-        private string name { get; set; }
+        public string name { get; set; }
 
-        private string lastName { get; set; }
+        public string lastName { get; set; }
 
-        private string phone { get; set; }
+        public string phone { get; set; }
 
-        private string email { get; set; }
+        public string email { get; set; }
 
-        private string riskGroup { get; set; }
+        public string riskGroup { get; set; }
 
-        private string ticketNumber { get; set; }
+        public string ticketNumber { get; set; }
 
     }
 }

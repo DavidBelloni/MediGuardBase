@@ -1,4 +1,5 @@
 ﻿using BLL;
+using DOMAIN;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,11 +14,12 @@ namespace UI
 {
     public partial class Form1: Form
     {
+        private PatientLogic patientLogic;
         public Form1()
         {
             InitializeComponent();
 
-            PatientLogic patientLogic = new PatientLogic();
+            patientLogic = new PatientLogic();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -27,7 +29,24 @@ namespace UI
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
+            // Obtener los datos del paciente desde los controles del formulario
+            var patient = new Patient
+            {
+                idPatient = Guid.NewGuid(),
+                dni = int.Parse(textBoxDni.Text),
+                name = textBoxName.Text,
+                lastName = textBoxLastName.Text,
+                phone = textBoxPhone.Text,
+                email = textBoxEmail.Text,
+                riskGroup = comboBoxRiskGroup.SelectedItem.ToString(),
+                ticketNumber = textBoxTicketNumber.Text
+            };
 
+            // Llamar al método RegisterPatient para registrar el paciente
+            patientLogic.RegisterPatient(patient);
+
+            // Mostrar un mensaje confirmando el registro
+            MessageBox.Show("Paciente registrado exitosamente.");
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
