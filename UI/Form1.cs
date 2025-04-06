@@ -39,19 +39,19 @@ namespace UI
                 phone = textBoxPhone.Text,
                 email = textBoxEmail.Text,
                 riskGroup = comboBoxRiskGroup.SelectedItem.ToString(),
-                ticketNumber = textBoxTicketNumber.Text
+                ticketNumber = TicketNumberGenerator.GenerateTicketNumber()
             };
 
             // Llamar al método RegisterPatient para registrar el paciente
             patientLogic.RegisterPatient(patient);
 
             // Mostrar un mensaje confirmando el registro
-            MessageBox.Show("Paciente registrado exitosamente.");
+            MessageBox.Show("Paciente registrado exitosamente con número de ticket: " + patient.ticketNumber);
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void textBoxTicketNumber_TextChanged(object sender, EventArgs e)

@@ -38,12 +38,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.btnRegister = new System.Windows.Forms.Button();
             this.comboBoxRiskGroup = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.textBoxTicketNumber = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -142,16 +140,6 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Email:";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(27, 409);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(137, 20);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Numero de Ticket:";
-            // 
             // btnRegister
             // 
             this.btnRegister.Location = new System.Drawing.Point(171, 456);
@@ -195,16 +183,6 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // textBoxTicketNumber
-            // 
-            this.textBoxTicketNumber.Enabled = false;
-            this.textBoxTicketNumber.Location = new System.Drawing.Point(171, 403);
-            this.textBoxTicketNumber.Name = "textBoxTicketNumber";
-            this.textBoxTicketNumber.Size = new System.Drawing.Size(249, 26);
-            this.textBoxTicketNumber.TabIndex = 15;
-            this.textBoxTicketNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxTicketNumber.TextChanged += new System.EventHandler(this.textBoxTicketNumber_TextChanged);
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -222,12 +200,10 @@
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(445, 511);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBoxTicketNumber);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.comboBoxRiskGroup);
             this.Controls.Add(this.btnRegister);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -260,12 +236,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.ComboBox comboBoxRiskGroup;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.TextBox textBoxTicketNumber;
         private System.Windows.Forms.Label label8;
     }
 }
