@@ -41,9 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PatientLogic.cs" />
+    <Compile Include="PacienteLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TicketNumberGenerator.cs" />
+    <Compile Include="GeneradorDeTicket.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

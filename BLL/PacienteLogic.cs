@@ -11,20 +11,25 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class PatientLogic
+    public class PacienteLogic
     {
-        private readonly IPatientRepository patientRepository;
+        private readonly IPacienteRepository pacienteRepository;
 
-        public PatientLogic()
+        public PacienteLogic()
         {
             // Devuelve una instancia de la clase Patient
-            patientRepository = FactoryDao.PatientRepository;
+            pacienteRepository = FactoryDao.PacienteRepository;
         }
 
-        public void RegisterPatient(Patient patient)
+        public void RegisterPaciente(Paciente paciente)
         {
             // Aquí podria agregar validaciones o reglas de negocio antes de registrar el paciente
-            patientRepository.add(patient);
+            pacienteRepository.add(paciente);
+        }
+
+        public List<Paciente> GetPacienteByDni(int dni)
+        {
+            return pacienteRepository.GetByDni(dni);
         }
     }
 }

@@ -9,15 +9,15 @@ using System.Threading.Tasks;
 
 namespace DAL.Implementation.Memory
 {
-    public class PatientRepository : IPatientRepository
+    public class PacienteRepository : IPacienteRepository
 
     {
-        private static List<Patient> _list;
+        private static List<Paciente> _list;
 
         #region singleton
-        private readonly static PatientRepository _instance = new PatientRepository();
+        private readonly static PacienteRepository _instance = new PacienteRepository();
 
-        public static PatientRepository Current
+        public static PacienteRepository Current
         {
             get
             {
@@ -25,13 +25,13 @@ namespace DAL.Implementation.Memory
             }
         }
 
-        private PatientRepository()
+        private PacienteRepository()
         {
-            _list = new List<Patient>();
+            _list = new List<Paciente>();
         }
         #endregion
 
-        public void add(Patient entity)
+        public void add(Paciente entity)
         {
             throw new NotImplementedException();
         }
@@ -41,22 +41,27 @@ namespace DAL.Implementation.Memory
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Patient> GetAll()
+        public IEnumerable<Paciente> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public Patient GetById(int id)
+        public Paciente GetById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public void Update(Patient entity)
+        public void Update(Paciente entity)
         {
             throw new NotImplementedException();
         }
 
-        public void PatientRegister(Patient patient)
+        public void RegisterPaciente(Paciente paciente)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Paciente> GetByDni(int dni)
         {
             throw new NotImplementedException();
         }

@@ -18,14 +18,25 @@ namespace DAL.Factory
             backendType = int.Parse(ConfigurationManager.AppSettings["BackendType"]);
         }
 
-        public static IPatientRepository PatientRepository
+        public static IPacienteRepository PacienteRepository
         {
             get
             {
                 if (backendType == (int)BackendType.Memory)
-                    return DAL.Implementation.Memory.PatientRepository.Current;
+                    return DAL.Implementation.Memory.PacienteRepository.Current;
                 else
-                    return DAL.Implementation.SqlServer.PatientRepository.Current;
+                    return DAL.Implementation.SqlServer.PacienteRepository.Current;
+            }
+        }
+
+        public static INumeroTicketRepository NumeroTicketRepository
+        {
+            get
+            {
+                if (backendType == (int)BackendType.Memory)
+                    return DAL.Implementation.Memory.NumeroTicketRepository.Current;
+                else
+                    return DAL.Implementation.SqlServer.NumeroTicketRepository.Current;
             }
         }
     }
