@@ -13,11 +13,14 @@ namespace DAL.Helpers
         {
             readonly static string conString;
 
-            static SqlHelper()
+        // Construstor estático que inicializa la cadena de conexión a la base de datos.
+       
+        static SqlHelper()
             {
                 conString = ConfigurationManager.ConnectionStrings["MainConString"].ConnectionString;
             }
         // ExecuteNonQuery sirve para ejecutar un comando SQL y devolver el número de filas afectadas.
+        // Se recomienda para Update y Deletes
         public static Int32 ExecuteNonQuery(String commandText,
                 CommandType commandType, params SqlParameter[] parameters)
             {
@@ -39,6 +42,7 @@ namespace DAL.Helpers
             }
 
         // CheckNullables es un método privado que verifica si los parámetros son nulos y los establece en DBNull.Value.
+        
         private static void CheckNullables(SqlParameter[] parameters)
             {
                 foreach (SqlParameter item in parameters)
@@ -51,6 +55,7 @@ namespace DAL.Helpers
             }
 
         // ExecuteScalar sirve para ejecutar un comando SQL y devolver un solo valor.
+        // Se utiliza para Insert
         public static Object ExecuteScalar(String commandText,
                 CommandType commandType, params SqlParameter[] parameters)
             {
@@ -68,6 +73,8 @@ namespace DAL.Helpers
             }
 
         // ExecuteReader sirve para ejecutar un comando SQL y devolver un SqlDataReader.
+        // Se utiliza para Select
+        // Aca es importante al usarlo recordar Cerrar la CONEXION
         public static SqlDataReader ExecuteReader(String commandText,
                 CommandType commandType, params SqlParameter[] parameters)
             {
