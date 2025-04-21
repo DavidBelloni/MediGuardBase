@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DOMAIN
+{
+    public class ConsultaMedica
+    {
+        public int IdConsultaMedica { get; set; }
+        public int idPaciente { get; set; }
+        public int idVisita { get; set; }
+        public string tratamiento { get; set; }
+        public string diagnostico { get; set; }
+        public string antecedentes { get; set; }
+        public string alergias { get; set; }    
+        public DateTime fechaHoraInicio { get; set; }
+        public DateTime fechaHoraFin { get; set; }  
+        public string medicacionHabitual { get; set; }
+
+        
+
+    }
+}

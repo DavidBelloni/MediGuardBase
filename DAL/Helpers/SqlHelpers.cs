@@ -17,7 +17,8 @@ namespace DAL.Helpers
             {
                 conString = ConfigurationManager.ConnectionStrings["MainConString"].ConnectionString;
             }
-            public static Int32 ExecuteNonQuery(String commandText,
+        // ExecuteNonQuery sirve para ejecutar un comando SQL y devolver el número de filas afectadas.
+        public static Int32 ExecuteNonQuery(String commandText,
                 CommandType commandType, params SqlParameter[] parameters)
             {
                 CheckNullables(parameters);
@@ -37,7 +38,8 @@ namespace DAL.Helpers
                 }
             }
 
-            private static void CheckNullables(SqlParameter[] parameters)
+        // CheckNullables es un método privado que verifica si los parámetros son nulos y los establece en DBNull.Value.
+        private static void CheckNullables(SqlParameter[] parameters)
             {
                 foreach (SqlParameter item in parameters)
                 {
@@ -48,10 +50,8 @@ namespace DAL.Helpers
                 }
             }
 
-            /// <summary>
-            /// Set the connection, command, and then execute the command and only return one value.
-            /// </summary>
-            public static Object ExecuteScalar(String commandText,
+        // ExecuteScalar sirve para ejecutar un comando SQL y devolver un solo valor.
+        public static Object ExecuteScalar(String commandText,
                 CommandType commandType, params SqlParameter[] parameters)
             {
                 using (SqlConnection conn = new SqlConnection(conString))
@@ -67,10 +67,8 @@ namespace DAL.Helpers
                 }
             }
 
-            /// <summary>
-            /// Set the connection, command, and then execute the command with query and return the reader.
-            /// </summary>
-            public static SqlDataReader ExecuteReader(String commandText,
+        // ExecuteReader sirve para ejecutar un comando SQL y devolver un SqlDataReader.
+        public static SqlDataReader ExecuteReader(String commandText,
                 CommandType commandType, params SqlParameter[] parameters)
             {
                 SqlConnection conn = new SqlConnection(conString);
