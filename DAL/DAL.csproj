@@ -51,6 +51,7 @@
     <Compile Include="Implementation\Memory\NumeroTicketRepository.cs" />
     <Compile Include="Implementation\SqlServer\PacienteRepository.cs" />
     <Compile Include="Implementation\SqlServer\NumeroTicketRepository.cs" />
+    <Compile Include="Implementation\SqlServer\VisitaRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

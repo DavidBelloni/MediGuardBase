@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace DOMAIN
 {
-    public class Ticket
+    public class Especialidad
     {
-        public DateTime fechaHora { get; set; }
+        public Guid idEspecialidad { get; set; }
+        public string nombre { get; set; }  
+        public string descripcion { get; set; }
         public string prefijo { get; set; }
-        public int numero { get; set; }
-        public Visita visita { get; set; }
+
     }
 }

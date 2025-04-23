@@ -14,21 +14,18 @@ namespace DOMAIN
             Prepaga,
             Particular
         }
-
         public enum Sexo
         {
             Masculino,
             Femenino,
             Otro
         }
-
         public enum TipoDocumento
         {
             DNI,
             Pasaporte,
             Cedula
         }
-
         public enum EstadoVisita
         {
             EsperandoTriage,
@@ -37,12 +34,18 @@ namespace DOMAIN
             AtencionInmediata,
             Ausente
         }
-
         public enum NivelUrgencia
         {
             Rojo,
             Amarillo,
             Verde
+        }
+        public enum GrupoRiesgo
+        {
+            Mayor80,
+            Inmunosuprimido,
+            LactanteMenor30Dias,
+            Embarazada
         }
 
     }

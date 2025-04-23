@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using static DOMAIN.Enums;
 
 namespace DAL.Implementation.SqlServer
 {
@@ -38,7 +39,7 @@ namespace DAL.Implementation.SqlServer
             SqlParameter[] parameters = new SqlParameter[]
             {
                 new SqlParameter("@idPaciente", paciente.idPaciente),
-                new SqlParameter("@dni", paciente.dni),
+                new SqlParameter("@dni", paciente.numeroDocumento),
                 new SqlParameter("@nombre", paciente.nombre),
                 new SqlParameter("@apellido", paciente.apellido),
                 new SqlParameter("@celular", paciente.celular),
@@ -81,15 +82,22 @@ namespace DAL.Implementation.SqlServer
             {
                 while (reader.Read())
                 {
-                    pacientes.Add(new Paciente
+                    Paciente paciente = new Paciente
                     {
                         idPaciente = reader.GetGuid(reader.GetOrdinal("idPaciente")),
-                        dni = reader.GetInt32(reader.GetOrdinal("dni")),
+                        tipoDocumento = Enum.TryParse<TipoDocumento>(reader.GetString(reader.GetOrdinal("tipoDocumento")), out var parsedTipoDocumento) ? parsedTipoDocumento : TipoDocumento.DNI,
+                        numeroDocumento = reader.GetInt32(reader.GetOrdinal("DNI")),
                         nombre = reader.GetString(reader.GetOrdinal("nombre")),
                         apellido = reader.GetString(reader.GetOrdinal("apellido")),
-                        celular = reader.GetString(reader.GetOrdinal("celular")),
                         email = reader.GetString(reader.GetOrdinal("email")),
-                    });
+                        celular = reader.GetString(reader.GetOrdinal("celular")),
+                        sexo = Enum.TryParse<Sexo>(reader.GetString(reader.GetOrdinal("sexo")), out var parsedSexo) ? parsedSexo : Sexo.Otro,
+                        fechaNacimiento = reader.GetDateTime(reader.GetOrdinal("FechaNacimiento")),
+                        coberturaMedica = reader.GetString(reader.GetOrdinal("CoberturaMedica")),
+                        tipoCobertura = Enum.TryParse<TipoCobertura>(reader.GetString(reader.GetOrdinal("TipoCobertura")), out var parsedTipoCobertura) ? parsedTipoCobertura : TipoCobertura.Particular,
+                    };
+
+                    pacientes.Add(paciente);
                 }
             }
             return pacientes;
