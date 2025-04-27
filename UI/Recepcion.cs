@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static DOMAIN.Enums;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace UI
 {
@@ -22,7 +23,7 @@ namespace UI
 
         private void Recepcion_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         // Método para buscar un paciente por DNI
@@ -30,18 +31,11 @@ namespace UI
         {
             try
             {
-                // Obtener el DNI ingresado en el campo de texto  
-                if (!int.TryParse(txtDocumento.Text, out int numeroDocumento))
-                {
-                    MessageBox.Show("Por favor, ingrese un Documento válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
                 // Instanciar la lógica de negocio para pacientes  
                 var pacienteLogic = new PacienteLogic();
 
                 // Buscar el paciente por DNI  
-                var paciente = pacienteLogic.GetPacienteByDni(numeroDocumento);
+                var paciente = pacienteLogic.GetPacienteByDni(Int32.Parse(txtDocumento.Text));
 
                 if (paciente != null)
                 {
@@ -64,9 +58,14 @@ namespace UI
                     MessageBox.Show("El paciente no está registrado. Complete los datos para darlo de alta.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
             catch (Exception ex)
             {
-                // Manejo de errores  
                 MessageBox.Show($"Ocurrió un error al buscar el paciente: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -96,67 +95,26 @@ namespace UI
         {
             try
             {
-                // Validar los datos del formulario
-                if (string.IsNullOrWhiteSpace(txtDocumento.Text) ||
-                    string.IsNullOrWhiteSpace(txtNombre.Text) ||
-                    string.IsNullOrWhiteSpace(txtApellido.Text) ||
-                    cbGrupoRiesgo.SelectedIndex == -1) // Validar que el grupo de riesgo esté seleccionado
+
+                var paciente = new Paciente
                 {
-                    MessageBox.Show("Por favor, complete todos los campos obligatorios, incluido el grupo de riesgo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                // Obtener los datos del formulario
-                int numeroDocumento = int.Parse(txtDocumento.Text);
-                string tipoDocumento = cbTipoDocumento.Text;
-                string nombre = txtNombre.Text;
-                string apellido = txtApellido.Text;
-                string email = txtEmail.Text;
-                string celular = txtCel.Text;
-                string sexo = cbSexo.Text; // Texto seleccionado en el ComboBox
-                string tipoCobertura = cbTipoCobertura.Text; // Texto seleccionado en el ComboBox
-                string coberturaMedica = txtCobertura.Text;
-                string grupoRiesgo = cbGrupoRiesgo.Text; // Grupo de riesgo seleccionado
-                DateTime fechaNacimiento = dtpFechaNacimiento.Value;
-
-                // Crear instancia de la lógica de negocio
-                var pacienteLogic = new PacienteLogic();
-                var visitaLogic = new VisitaLogic();
-
-                // Buscar si el paciente ya existe
-                var paciente = pacienteLogic.GetPacienteByDni(numeroDocumento);
-
-                if (paciente == null)
-                {
-                    // El paciente no existe, crear uno nuevo
-                    paciente = new Paciente
-                    {
-                        //idPaciente = Guid.NewGuid(), // El id se genera en la base de datos
-                        tipoDocumento = (Enums.TipoDocumento)Enum.Parse(typeof(Enums.TipoDocumento), cbTipoDocumento.Text),
-                        numeroDocumento = numeroDocumento,
-                        nombre = nombre,
-                        apellido = apellido,
-                        email = email,
-                        celular = celular,
-                        sexo = (Enums.Sexo)Enum.Parse(typeof(Enums.Sexo), cbSexo.Text),
-                        tipoCobertura = (Enums.TipoCobertura)Enum.Parse(typeof(Enums.TipoCobertura), cbTipoCobertura.Text),
-                        fechaNacimiento = fechaNacimiento,
-                        coberturaMedica = txtCobertura.Text,
-                    };
-
-                    pacienteLogic.RegistrarPaciente(paciente);
-                }
-
-                // Registrar la visita
-                var visita = new Visita
-                {
-                    paciente = paciente, // Asociar al ID del paciente
-                    fechaHoraIngreso = DateTime.Now, // Fecha y hora de la visita
-                    grupoRiesgo = (GrupoRiesgo)Enum.Parse(typeof(GrupoRiesgo), cbGrupoRiesgo.Text), // Grupo de riesgo seleccionado
-                    estadoVisita = EstadoVisita.EsperandoTriage, // Estado inicial de la visita
+                    numeroDocumento = int.Parse(txtDocumento.Text),
+                    tipoDocumento = (Enums.TipoDocumento)Enum.Parse(typeof(Enums.TipoDocumento), cbTipoDocumento.Text),
+                    nombre = txtNombre.Text,
+                    apellido = txtApellido.Text,
+                    email = txtEmail.Text,
+                    celular = txtCel.Text,
+                    sexo = (Enums.Sexo)Enum.Parse(typeof(Enums.Sexo), cbSexo.Text),
+                    tipoCobertura = (Enums.TipoCobertura)Enum.Parse(typeof(Enums.TipoCobertura), cbTipoCobertura.Text),
+                    fechaNacimiento = dtpFechaNacimiento.Value,
+                    coberturaMedica = txtCobertura.Text,
                 };
 
-                visitaLogic.RegistrarVisita(visita);
+                var grupoRiesgo = cbGrupoRiesgo.Text;
+
+                // Registrar la visita mediante la lógica de negocio
+                var visitaLogic = new VisitaLogic();
+                visitaLogic.RegistrarVisita(paciente, grupoRiesgo);
 
                 // Confirmar operación
                 MessageBox.Show("La visita ha sido registrada exitosamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -164,12 +122,29 @@ namespace UI
                 // Limpiar el formulario
                 LimpiarFormulario();
             }
+
+            catch (ArgumentException ex)
+            {
+                // Manejo de errores de validación
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             catch (Exception ex)
             {
-                // Manejo de errores
+                // Manejo de errores generales
                 MessageBox.Show($"Ocurrió un error al registrar la visita: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+            //int numeroDocumento = int.Parse(txtDocumento.Text);
+            //string tipoDocumento = cbTipoDocumento.Text;
+            //string nombre = txtNombre.Text;
+            //string apellido = txtApellido.Text;
+            //string email = txtEmail.Text;
+            //string celular = txtCel.Text;
+            //string sexo = cbSexo.Text; // Texto seleccionado en el ComboBox
+            //string tipoCobertura = cbTipoCobertura.Text; // Texto seleccionado en el ComboBox
+            //string coberturaMedica = txtCobertura.Text;
+            //string grupoRiesgo = cbGrupoRiesgo.Text; // Grupo de riesgo seleccionado
+            //DateTime fechaNacimiento = dtpFechaNacimiento.Value;
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {

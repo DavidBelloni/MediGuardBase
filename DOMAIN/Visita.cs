@@ -10,16 +10,18 @@ namespace DOMAIN
     public class Visita
     {
         public Guid idVisita { get; set; }
-        public Paciente paciente { get; set; }
-        public Triage triage { get; set; }
+        public Guid idPaciente { get; set; }
+        public Guid idTriage { get; set; }
         public Guid idEspecialidad { get; set; }    
         public DateTime fechaHoraIngreso { get; set; }
-        public DateTime? fechahoraAusente { get; set; }
+        public DateTime? fechaHoraAusente { get; set; }
         public EstadoVisita estadoVisita { get; set; } 
         public GrupoRiesgo grupoRiesgo { get; set; }
+        public Guid idUsuario { get; set; }
      
         public Visita()
         {
+            fechaHoraIngreso = DateTime.Now;
             estadoVisita = EstadoVisita.EsperandoTriage;
         }
 

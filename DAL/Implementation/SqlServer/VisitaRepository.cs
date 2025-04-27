@@ -40,11 +40,11 @@ namespace DAL.Implementation.SqlServer
 
             SqlParameter[] parameters = new SqlParameter[]
             {
-                new SqlParameter("@idPaciente", visita.paciente.idPaciente), // Relación con Paciente
-                new SqlParameter("@idTriage", visita.triage), // Enum Triage
+                new SqlParameter("@idPaciente", visita.idPaciente),
+                new SqlParameter("@idTriage", visita.idTriage), 
                 new SqlParameter("@idEspecialidad", visita.idEspecialidad),
                 new SqlParameter("@fechaHoraIngreso", visita.fechaHoraIngreso),
-                new SqlParameter("@fechahoraAusente", (object)visita.fechahoraAusente ?? DBNull.Value), // Puede ser null
+                new SqlParameter("@fechahoraAusente", (object)visita.fechaHoraAusente ?? DBNull.Value), // Puede ser null
                 new SqlParameter("@estadoVisita", Convert.ToInt32(visita.estadoVisita)), // Enum EstadoVisita
                 new SqlParameter("@grupoRiesgo", Convert.ToInt32(visita.grupoRiesgo)) // Enum GrupoRiesgo
             };

@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static DOMAIN.Enums;
 
 namespace BLL
 {
@@ -36,19 +37,34 @@ namespace BLL
             return true;
         }
 
-        public bool ValidarDatosFormulario(Paciente paciente, string grupoRiesgo)
+        public bool ValidarDatosPaciente(Paciente paciente, string grupoRiesgo)
         {
+            // Validar que todos los campos obligatorios estén completos
             if (string.IsNullOrWhiteSpace(paciente.nombre) ||
                 string.IsNullOrWhiteSpace(paciente.apellido) ||
-                string.IsNullOrWhiteSpace(grupoRiesgo))
+                string.IsNullOrWhiteSpace(paciente.celular) ||
+                string.IsNullOrWhiteSpace(paciente.email) ||
+                string.IsNullOrWhiteSpace(paciente.coberturaMedica) ||
+                string.IsNullOrWhiteSpace(grupoRiesgo) ||
+                paciente.sexo == default(Sexo) || // Comprobación si sexo no está definido
+                paciente.tipoCobertura == default(TipoCobertura) ||  // Comprobación si cobertura no está definida
+                paciente.tipoDocumento == default(TipoDocumento))
             {
                 return false;
             }
+
             return true;
         }
 
         public Paciente GetPacienteByDni(int numeroDocumento)
         {
+            // Validar que el número de documento sea válido
+            if (numeroDocumento <= 0)
+            {
+                throw new ArgumentException("Debe ingresar un numero de documento valido.");
+            }
+
+            // Buscar el paciente por DNI
             return pacienteRepository.GetByDni(numeroDocumento);
         }
     }

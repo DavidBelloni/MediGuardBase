@@ -10,24 +10,28 @@ namespace DOMAIN
     {
         public enum TipoCobertura
         {
+            NoDefinido,
             ObraSocial,
             Prepaga,
             Particular
         }
         public enum Sexo
         {
+            NoDefinido,
             Masculino,
             Femenino,
             Otro
         }
         public enum TipoDocumento
         {
+            NoDefinido,
             DNI,
             Pasaporte,
             Cedula
         }
         public enum EstadoVisita
         {
+            NoDefinido,
             EsperandoTriage,
             EsperandoConsulta,
             ConsultaFinalizada,
@@ -36,12 +40,14 @@ namespace DOMAIN
         }
         public enum NivelUrgencia
         {
+            NoDefinido,
             Rojo,
             Amarillo,
             Verde
         }
         public enum GrupoRiesgo
         {
+            NoDefinido,
             Mayor80,
             Inmunosuprimido,
             LactanteMenor30Dias,

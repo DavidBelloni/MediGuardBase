@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static DOMAIN.Enums;
 
 namespace BLL
 {
@@ -19,9 +20,39 @@ namespace BLL
             // Devuelve una instancia de la clase Visita
             visitaRepository = FactoryDao.VisitaRepository;
         }
-        public void RegistrarVisita(Visita visita)
+        public void RegistrarVisita(Paciente paciente, string grupoRiesgo)
         {
-            // Metodo para registrar una visita 
+            var pacienteLogic = new PacienteLogic();
+
+            // Validar datos del paciente y formulario
+            if (!pacienteLogic.ValidarDatosPaciente(paciente, grupoRiesgo))
+            {
+                throw new ArgumentException("Por favor, complete todos los campos obligatorios.");
+            }
+
+            // Validar si el paciente ya existe
+            var pacienteExistente = pacienteLogic.GetPacienteByDni(paciente.numeroDocumento);
+
+            if (pacienteExistente == null)
+            {
+                // Registrar paciente si no existe
+                pacienteLogic.RegistrarPaciente(paciente);
+            }
+            else
+            {
+                // Utilizar el paciente existente
+                paciente = pacienteExistente;
+            }
+
+            // Registrar la visita
+            var visita = new Visita
+            {
+                idPaciente = paciente.idPaciente,
+                grupoRiesgo = (GrupoRiesgo)Enum.Parse(typeof(GrupoRiesgo), grupoRiesgo),
+            };
+
+            // Agregar la visita al repositorio
+            visitaRepository.Add(visita);
 
         }
     }
