@@ -66,7 +66,7 @@ namespace DAL.Implementation.Memory
             throw new NotImplementedException();
         }
 
-        Paciente IPacienteRepository.GetByDni(int dni)
+        public Paciente GetByDni(int numeroDocumento, Enums.TipoDocumento tipoDocumento)
         {
             throw new NotImplementedException();
         }

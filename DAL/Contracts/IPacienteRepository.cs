@@ -5,6 +5,7 @@ using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static DOMAIN.Enums;
 
 namespace DAL.Contracts
 {
@@ -12,6 +13,6 @@ namespace DAL.Contracts
 
     {
         // Método para buscar un paciente por DNI
-        Paciente GetByDni(int numeroDocumento);
+        Paciente GetByDni(int numeroDocumento, TipoDocumento tipoDocumento);
     }
 }

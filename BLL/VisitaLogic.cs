@@ -31,7 +31,7 @@ namespace BLL
             }
 
             // Validar si el paciente ya existe
-            var pacienteExistente = pacienteLogic.GetPacienteByDni(paciente.numeroDocumento);
+            var pacienteExistente = pacienteLogic.GetPacienteByDni(paciente.numeroDocumento, paciente.tipoDocumento);
 
             if (pacienteExistente == null)
             {

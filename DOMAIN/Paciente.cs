@@ -24,6 +24,7 @@ namespace DOMAIN
 
         public Paciente()
         {
+            fechaCreacion = DateTime.Now;   
         }
 
         public bool Any()

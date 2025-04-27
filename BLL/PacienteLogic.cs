@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using static DOMAIN.Enums;
 
 namespace BLL
@@ -56,16 +57,16 @@ namespace BLL
             return true;
         }
 
-        public Paciente GetPacienteByDni(int numeroDocumento)
+        public Paciente GetPacienteByDni(int numeroDocumento, TipoDocumento tipoDocumento)
         {
             // Validar que el número de documento sea válido
-            if (numeroDocumento <= 0)
+            if (numeroDocumento <=0 && tipoDocumento <=0)
             {
-                throw new ArgumentException("Debe ingresar un numero de documento valido.");
+                MessageBox.Show("Debe ingresar un tipo y numero de documento valido.");
             }
 
             // Buscar el paciente por DNI
-            return pacienteRepository.GetByDni(numeroDocumento);
+            return pacienteRepository.GetByDni(numeroDocumento, tipoDocumento);
         }
     }
 }

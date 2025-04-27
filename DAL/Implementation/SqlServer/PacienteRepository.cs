@@ -77,13 +77,14 @@ namespace DAL.Implementation.SqlServer
             throw new NotImplementedException();
         }
 
-        public Paciente GetByDni(int numeroDocumento)
+        public Paciente GetByDni(int numeroDocumento, TipoDocumento tipoDocumento)
         {
             
-            string commandText = "SELECT TOP 1 * FROM Paciente WHERE numeroDocumento = @numeroDocumento";
+            string commandText = "SELECT TOP 1 * FROM Paciente WHERE numeroDocumento = @numeroDocumento ";
             SqlParameter[] parameters = new SqlParameter[]
             {
-                new SqlParameter("@numeroDocumento", numeroDocumento)
+                new SqlParameter("@numeroDocumento", numeroDocumento),
+                new SqlParameter("@tipoDocumento", Convert.ToInt32(tipoDocumento))
             };
 
             using (var reader = SqlHelper.ExecuteReader(commandText, CommandType.Text, parameters))
