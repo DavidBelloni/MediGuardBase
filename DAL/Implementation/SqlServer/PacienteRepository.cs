@@ -35,15 +35,23 @@ namespace DAL.Implementation.SqlServer
         #endregion
         public void add(Paciente paciente)
         {
-            string commandText = "INSERT INTO Paciente (idPaciente, dni, nombre, apellido, celular, email) VALUES (@IdPaciente, @dni, @nombre, @apellido, @celular, @email)";
+            string commandText = 
+                "INSERT INTO Paciente (tipoDocumento, numeroDocumento, nombre, apellido, celular, email, sexo, fechaNacimiento, coberturaMedica, tipoCobertura, fechaCreacion) " +
+                "VALUES (@tipoDocumento, @numeroDocumento, @nombre, @apellido, @celular, @email, @sexo, @fechaNacimiento, @coberturaMedica, @tipoCobertura, @fechaCreacion)";
             SqlParameter[] parameters = new SqlParameter[]
             {
-                new SqlParameter("@idPaciente", paciente.idPaciente),
-                new SqlParameter("@dni", paciente.numeroDocumento),
+                new SqlParameter("@tipoDocumento", Convert.ToInt32(paciente.tipoDocumento)),
+                new SqlParameter("@numeroDocumento", paciente.numeroDocumento),
                 new SqlParameter("@nombre", paciente.nombre),
                 new SqlParameter("@apellido", paciente.apellido),
                 new SqlParameter("@celular", paciente.celular),
                 new SqlParameter("@email", paciente.email),
+                new SqlParameter("@sexo", Convert.ToInt32(paciente.sexo)),
+                new SqlParameter("@fechaNacimiento", paciente.fechaNacimiento),
+                new SqlParameter("@coberturaMedica", paciente.coberturaMedica),
+                new SqlParameter("@tipoCobertura", Convert.ToInt32(paciente.tipoCobertura)),
+                new SqlParameter("@fechaCreacion", DateTime.Now)    
+
             };
 
             SqlHelper.ExecuteNonQuery(commandText, CommandType.Text, parameters);
@@ -69,38 +77,39 @@ namespace DAL.Implementation.SqlServer
             throw new NotImplementedException();
         }
 
-        public List<Paciente> GetByDni(int dni)
+        public Paciente GetByDni(int numeroDocumento)
         {
-            List<Paciente> pacientes = new List<Paciente>();
-            string commandText = "SELECT * FROM Paciente WHERE dni = @dni";
+            
+            string commandText = "SELECT TOP 1 * FROM Paciente WHERE numeroDocumento = @numeroDocumento";
             SqlParameter[] parameters = new SqlParameter[]
             {
-                new SqlParameter("@dni", dni)
+                new SqlParameter("@numeroDocumento", numeroDocumento)
             };
 
-            using (SqlDataReader reader = SqlHelper.ExecuteReader(commandText, CommandType.Text, parameters))
+            using (var reader = SqlHelper.ExecuteReader(commandText, CommandType.Text, parameters))
             {
-                while (reader.Read())
+                if (reader.Read())
                 {
-                    Paciente paciente = new Paciente
+                    return new Paciente
                     {
                         idPaciente = reader.GetGuid(reader.GetOrdinal("idPaciente")),
-                        tipoDocumento = Enum.TryParse<TipoDocumento>(reader.GetString(reader.GetOrdinal("tipoDocumento")), out var parsedTipoDocumento) ? parsedTipoDocumento : TipoDocumento.DNI,
-                        numeroDocumento = reader.GetInt32(reader.GetOrdinal("DNI")),
+                        numeroDocumento = reader.GetInt32(reader.GetOrdinal("numeroDocumento")),
                         nombre = reader.GetString(reader.GetOrdinal("nombre")),
                         apellido = reader.GetString(reader.GetOrdinal("apellido")),
-                        email = reader.GetString(reader.GetOrdinal("email")),
                         celular = reader.GetString(reader.GetOrdinal("celular")),
-                        sexo = Enum.TryParse<Sexo>(reader.GetString(reader.GetOrdinal("sexo")), out var parsedSexo) ? parsedSexo : Sexo.Otro,
-                        fechaNacimiento = reader.GetDateTime(reader.GetOrdinal("FechaNacimiento")),
-                        coberturaMedica = reader.GetString(reader.GetOrdinal("CoberturaMedica")),
-                        tipoCobertura = Enum.TryParse<TipoCobertura>(reader.GetString(reader.GetOrdinal("TipoCobertura")), out var parsedTipoCobertura) ? parsedTipoCobertura : TipoCobertura.Particular,
-                    };
+                        email = reader.GetString(reader.GetOrdinal("email")),
+                        sexo = (Sexo)reader.GetInt32(reader.GetOrdinal("sexo")),
+                        fechaNacimiento = reader.GetDateTime(reader.GetOrdinal("fechaNacimiento")),
+                        coberturaMedica = reader.GetString(reader.GetOrdinal("coberturaMedica")),
+                        tipoCobertura = (TipoCobertura)reader.GetInt32(reader.GetOrdinal("tipoCobertura")),
 
-                    pacientes.Add(paciente);
+                        // Map other properties as needed
+                    };
                 }
             }
-            return pacientes;
+
+            // If no record is found, return null
+            return null;
         }
 
         public List<Paciente> GetWaitingList()

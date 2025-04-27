@@ -17,19 +17,39 @@ namespace BLL
 
         public PacienteLogic()
         {
-            // Devuelve una instancia de la clase Patient
+            // Devuelve una instancia de la clase Paciente
             pacienteRepository = FactoryDao.PacienteRepository;
         }
 
-        public void RegisterPaciente(Paciente paciente)
+        public void RegistrarPaciente(Paciente paciente)
         {
-            // Aquí podria agregar validaciones o reglas de negocio antes de registrar el paciente
             pacienteRepository.add(paciente);
         }
 
-        public List<Paciente> GetPacienteByDni(int dni)
+        public bool ValidarDni(string dniTexto, out int dni)
         {
-            return pacienteRepository.GetByDni(dni);
+            dni = 0;
+            if (string.IsNullOrWhiteSpace(dniTexto) || !int.TryParse(dniTexto, out dni))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public bool ValidarDatosFormulario(Paciente paciente, string grupoRiesgo)
+        {
+            if (string.IsNullOrWhiteSpace(paciente.nombre) ||
+                string.IsNullOrWhiteSpace(paciente.apellido) ||
+                string.IsNullOrWhiteSpace(grupoRiesgo))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public Paciente GetPacienteByDni(int numeroDocumento)
+        {
+            return pacienteRepository.GetByDni(numeroDocumento);
         }
     }
 }

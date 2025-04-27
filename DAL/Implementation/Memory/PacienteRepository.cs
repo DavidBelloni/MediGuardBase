@@ -65,5 +65,10 @@ namespace DAL.Implementation.Memory
         {
             throw new NotImplementedException();
         }
+
+        Paciente IPacienteRepository.GetByDni(int dni)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

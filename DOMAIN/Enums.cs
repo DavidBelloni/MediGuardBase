@@ -45,7 +45,8 @@ namespace DOMAIN
             Mayor80,
             Inmunosuprimido,
             LactanteMenor30Dias,
-            Embarazada
+            Embarazada,
+            NoPertenece
         }
 
     }

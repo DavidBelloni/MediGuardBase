@@ -39,6 +39,17 @@ namespace DAL.Factory
                     return DAL.Implementation.SqlServer.NumeroTicketRepository.Current;
             }
         }
+
+        public static IVisitaRepository VisitaRepository
+        {
+            get
+            {
+                if (backendType == (int)BackendType.Memory)
+                    return DAL.Implementation.Memory.VisitaRepository.Current;
+                else
+                    return DAL.Implementation.SqlServer.VisitaRepository.Current;
+            }
+        }
     }
 
     internal enum BackendType

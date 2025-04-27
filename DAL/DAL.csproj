@@ -45,10 +45,12 @@
     <Compile Include="Contracts\IGenericRepository.cs" />
     <Compile Include="Contracts\IPacienteRepository.cs" />
     <Compile Include="Contracts\INumeroTicketRepository.cs" />
+    <Compile Include="Contracts\IVisitaRepository.cs" />
     <Compile Include="Factory\FactoryDao.cs" />
     <Compile Include="Helpers\SqlHelpers.cs" />
     <Compile Include="Implementation\Memory\PacienteRepository.cs" />
     <Compile Include="Implementation\Memory\NumeroTicketRepository.cs" />
+    <Compile Include="Implementation\Memory\VisitaRepository.cs" />
     <Compile Include="Implementation\SqlServer\PacienteRepository.cs" />
     <Compile Include="Implementation\SqlServer\NumeroTicketRepository.cs" />
     <Compile Include="Implementation\SqlServer\VisitaRepository.cs" />

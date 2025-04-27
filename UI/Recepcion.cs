@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static DOMAIN.Enums;
 
 namespace UI
 {
@@ -30,8 +31,7 @@ namespace UI
             try
             {
                 // Obtener el DNI ingresado en el campo de texto  
-                int dni;
-                if (!int.TryParse(txtDocumento.Text, out dni))
+                if (!int.TryParse(txtDocumento.Text, out int numeroDocumento))
                 {
                     MessageBox.Show("Por favor, ingrese un Documento válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -41,12 +41,10 @@ namespace UI
                 var pacienteLogic = new PacienteLogic();
 
                 // Buscar el paciente por DNI  
-                var pacientes = pacienteLogic.GetPacienteByDni(dni); // Asumiendo que devuelve una lista  
+                var paciente = pacienteLogic.GetPacienteByDni(numeroDocumento);
 
-                if (pacientes != null && pacientes.Any())
+                if (paciente != null)
                 {
-                    var paciente = pacientes.First(); // Obtener el primer paciente de la lista  
-
                     // Si el paciente existe, cargar los datos en el formulario  
                     txtNombre.Text = paciente.nombre;
                     txtApellido.Text = paciente.apellido;
@@ -84,7 +82,7 @@ namespace UI
             cbTipoCobertura.SelectedIndex = -1;
             txtCobertura.Clear();
             cbGrupoRiesgo.SelectedIndex = -1;
-            txtFechaNacimiento.Clear();
+            dtpFechaNacimiento.Value = DateTime.Now;
         }
 
         // Método para registrar la visita
@@ -109,13 +107,15 @@ namespace UI
                 }
 
                 // Obtener los datos del formulario
-                int dni = int.Parse(txtDocumento.Text);
+                int numeroDocumento = int.Parse(txtDocumento.Text);
+                string tipoDocumento = cbTipoDocumento.Text;
                 string nombre = txtNombre.Text;
                 string apellido = txtApellido.Text;
                 string email = txtEmail.Text;
                 string celular = txtCel.Text;
                 string sexo = cbSexo.Text; // Texto seleccionado en el ComboBox
                 string tipoCobertura = cbTipoCobertura.Text; // Texto seleccionado en el ComboBox
+                string coberturaMedica = txtCobertura.Text;
                 string grupoRiesgo = cbGrupoRiesgo.Text; // Grupo de riesgo seleccionado
                 DateTime fechaNacimiento = dtpFechaNacimiento.Value;
 
@@ -124,35 +124,36 @@ namespace UI
                 var visitaLogic = new VisitaLogic();
 
                 // Buscar si el paciente ya existe
-                var paciente = pacienteLogic.GetPacienteByDni(dni);
+                var paciente = pacienteLogic.GetPacienteByDni(numeroDocumento);
 
                 if (paciente == null)
                 {
                     // El paciente no existe, crear uno nuevo
                     paciente = new Paciente
                     {
-                        numeroDocumento = dni,
-                        tipoCobertura = (Enums.TipoCobertura)Enum.Parse(typeof(Enums.TipoCobertura), tipoCobertura),
+                        //idPaciente = Guid.NewGuid(), // El id se genera en la base de datos
+                        tipoDocumento = (Enums.TipoDocumento)Enum.Parse(typeof(Enums.TipoDocumento), cbTipoDocumento.Text),
+                        numeroDocumento = numeroDocumento,
                         nombre = nombre,
                         apellido = apellido,
                         email = email,
                         celular = celular,
                         sexo = (Enums.Sexo)Enum.Parse(typeof(Enums.Sexo), cbSexo.Text),
-                        tipoCobertura = tipoCobertura,
+                        tipoCobertura = (Enums.TipoCobertura)Enum.Parse(typeof(Enums.TipoCobertura), cbTipoCobertura.Text),
                         fechaNacimiento = fechaNacimiento,
+                        coberturaMedica = txtCobertura.Text,
                     };
 
-                    pacienteLogic.RegisterPaciente(paciente);
+                    pacienteLogic.RegistrarPaciente(paciente);
                 }
 
                 // Registrar la visita
                 var visita = new Visita
                 {
-                    PacienteId = paciente.IdPaciente, // Asociar al ID del paciente
-                    FechaHora = DateTime.Now,         // Fecha y hora de la visita
-                    GrupoRiesgo = grupoRiesgo,       // Grupo de riesgo seleccionado
-                    Motivo = txtMotivo.Text,         // Motivo de la visita
-                    Observaciones = txtObservaciones.Text // Observaciones adicionales
+                    paciente = paciente, // Asociar al ID del paciente
+                    fechaHoraIngreso = DateTime.Now, // Fecha y hora de la visita
+                    grupoRiesgo = (GrupoRiesgo)Enum.Parse(typeof(GrupoRiesgo), cbGrupoRiesgo.Text), // Grupo de riesgo seleccionado
+                    estadoVisita = EstadoVisita.EsperandoTriage, // Estado inicial de la visita
                 };
 
                 visitaLogic.RegistrarVisita(visita);

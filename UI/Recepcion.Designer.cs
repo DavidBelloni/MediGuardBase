@@ -211,6 +211,12 @@
             // cbGrupoRiesgo
             // 
             this.cbGrupoRiesgo.FormattingEnabled = true;
+            this.cbGrupoRiesgo.Items.AddRange(new object[] {
+            "Mayor80",
+            "Inmunosuprimido",
+            "LactanteMenor30Dias",
+            "Embarazada",
+            "NoPertenece"});
             this.cbGrupoRiesgo.Location = new System.Drawing.Point(267, 230);
             this.cbGrupoRiesgo.Name = "cbGrupoRiesgo";
             this.cbGrupoRiesgo.Size = new System.Drawing.Size(188, 21);
@@ -228,6 +234,10 @@
             // cbSexo
             // 
             this.cbSexo.FormattingEnabled = true;
+            this.cbSexo.Items.AddRange(new object[] {
+            "Masculino\t",
+            "Femenino",
+            "Otro"});
             this.cbSexo.Location = new System.Drawing.Point(24, 264);
             this.cbSexo.Name = "cbSexo";
             this.cbSexo.Size = new System.Drawing.Size(121, 21);
@@ -236,6 +246,10 @@
             // cbTipoCobertura
             // 
             this.cbTipoCobertura.FormattingEnabled = true;
+            this.cbTipoCobertura.Items.AddRange(new object[] {
+            "ObraSocial",
+            "Prepaga",
+            "Particular"});
             this.cbTipoCobertura.Location = new System.Drawing.Point(267, 147);
             this.cbTipoCobertura.Name = "cbTipoCobertura";
             this.cbTipoCobertura.Size = new System.Drawing.Size(188, 21);
@@ -253,6 +267,10 @@
             // cbTipoDocumento
             // 
             this.cbTipoDocumento.FormattingEnabled = true;
+            this.cbTipoDocumento.Items.AddRange(new object[] {
+            "DNI",
+            "Pasaporte",
+            "Cedula"});
             this.cbTipoDocumento.Location = new System.Drawing.Point(24, 33);
             this.cbTipoDocumento.Name = "cbTipoDocumento";
             this.cbTipoDocumento.Size = new System.Drawing.Size(89, 21);

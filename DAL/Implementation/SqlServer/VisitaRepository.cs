@@ -8,10 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
+using DAL.Contracts;
 
 namespace DAL.Implementation.SqlServer
 {
-    public class VisitaRepository
+    public class VisitaRepository : IVisitaRepository
     {
         #region singleton
         private readonly static VisitaRepository _instance = new VisitaRepository();
@@ -31,18 +32,50 @@ namespace DAL.Implementation.SqlServer
         #endregion
         public void Add(Visita visita)
         {
-            string commandText = "INSERT INTO Visita (pacienteId, fechaHora, grupoRiesgo, motivo, observaciones) " +
-                                 "VALUES (@pacienteId, @fechaHora, @grupoRiesgo, @motivo, @observaciones);";
+            string commandText = @"
+                INSERT INTO Visita 
+                (idPaciente, idTriage, idEspecialidad, fechaHoraIngreso, fechahoraAusente, estadoVisita, grupoRiesgo) 
+                VALUES 
+                (@idPaciente, @idTriage, @idEspecialidad, @fechaHoraIngreso, @fechahoraAusente, @estadoVisita, @grupoRiesgo);";
 
             SqlParameter[] parameters = new SqlParameter[]
             {
-        new SqlParameter("@fechaHora", visita.FechaHora),
-        new SqlParameter("@grupoRiesgo", visita.grupoRiesgo),
-        new SqlParameter("@motivo", visita.motivoVisita),
-        new SqlParameter("@observaciones", visita.observaciones)
+                new SqlParameter("@idPaciente", visita.paciente.idPaciente), // Relación con Paciente
+                new SqlParameter("@idTriage", visita.triage), // Enum Triage
+                new SqlParameter("@idEspecialidad", visita.idEspecialidad),
+                new SqlParameter("@fechaHoraIngreso", visita.fechaHoraIngreso),
+                new SqlParameter("@fechahoraAusente", (object)visita.fechahoraAusente ?? DBNull.Value), // Puede ser null
+                new SqlParameter("@estadoVisita", Convert.ToInt32(visita.estadoVisita)), // Enum EstadoVisita
+                new SqlParameter("@grupoRiesgo", Convert.ToInt32(visita.grupoRiesgo)) // Enum GrupoRiesgo
             };
 
             SqlHelper.ExecuteNonQuery(commandText, CommandType.Text, parameters);
+        }
+
+
+        public void Update(Visita obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Visita> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Visita GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void add(Visita obj)
+        {
+            throw new NotImplementedException();
         }
     }
 }
