@@ -49,7 +49,7 @@ namespace UI
                 var pacienteLogic = new PacienteLogic();
 
                 // Buscar el paciente por DNI  
-                var paciente = pacienteLogic.GetPacienteByDni(numeroDocumento, (TipoDocumento?)cbTipoDocumento.SelectedItem);
+                var paciente = pacienteLogic.GetPacienteByDni(numeroDocumento, (Enums.TipoDocumento)Enum.Parse(typeof(Enums.TipoDocumento), cbTipoDocumento.Text));
 
                 if (paciente != null)
                 {
