@@ -95,6 +95,7 @@ namespace DAL.Implementation.SqlServer
                     {
                         idPaciente = reader.GetGuid(reader.GetOrdinal("idPaciente")),
                         numeroDocumento = reader.GetInt32(reader.GetOrdinal("numeroDocumento")),
+                        tipoDocumento = (TipoDocumento)reader.GetInt32(reader.GetOrdinal("tipoDocumento")),
                         nombre = reader.GetString(reader.GetOrdinal("nombre")),
                         apellido = reader.GetString(reader.GetOrdinal("apellido")),
                         celular = reader.GetString(reader.GetOrdinal("celular")),

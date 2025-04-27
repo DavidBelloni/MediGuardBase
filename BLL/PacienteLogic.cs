@@ -47,9 +47,9 @@ namespace BLL
                 string.IsNullOrWhiteSpace(paciente.email) ||
                 string.IsNullOrWhiteSpace(paciente.coberturaMedica) ||
                 string.IsNullOrWhiteSpace(grupoRiesgo) ||
-                paciente.sexo == default(Sexo) || // Comprobación si sexo no está definido
-                paciente.tipoCobertura == default(TipoCobertura) ||  // Comprobación si cobertura no está definida
-                paciente.tipoDocumento == default(TipoDocumento))
+                paciente.sexo == Sexo.NoDefinido || // Comprobación si sexo no está definido
+                paciente.tipoCobertura == TipoCobertura.NoDefinido ||  // Comprobación si cobertura no está definida
+                paciente.tipoDocumento == TipoDocumento.NoDefinido) // Comprobación si tipo de documento no está definido
             {
                 return false;
             }
@@ -57,16 +57,22 @@ namespace BLL
             return true;
         }
 
-        public Paciente GetPacienteByDni(int numeroDocumento, TipoDocumento tipoDocumento)
+        public Paciente GetPacienteByDni(string dniTexto, TipoDocumento? tipoDocumento)
         {
             // Validar que el número de documento sea válido
-            if (numeroDocumento <=0 && tipoDocumento <=0)
+            if (string.IsNullOrWhiteSpace(dniTexto) || !int.TryParse(dniTexto, out int numeroDocumento) || numeroDocumento <= 0)
             {
-                MessageBox.Show("Debe ingresar un tipo y numero de documento valido.");
+                throw new ArgumentException("El número de documento debe ser un valor positivo y no debe estar vacío.");
             }
 
-            // Buscar el paciente por DNI
-            return pacienteRepository.GetByDni(numeroDocumento, tipoDocumento);
+            // Validar que el tipo de documento sea válido
+            if (tipoDocumento == null || !Enum.IsDefined(typeof(TipoDocumento), tipoDocumento))
+            {
+                throw new ArgumentException("Debe seleccionar un tipo de documento válido.");
+            }
+
+            // Buscar el paciente por DNI y tipo de documento
+            return pacienteRepository.GetByDni(numeroDocumento, tipoDocumento.Value);
         }
     }
 }

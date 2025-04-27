@@ -30,8 +30,8 @@ namespace BLL
                 throw new ArgumentException("Por favor, complete todos los campos obligatorios.");
             }
 
-            // Validar si el paciente ya existe
-            var pacienteExistente = pacienteLogic.GetPacienteByDni(paciente.numeroDocumento, paciente.tipoDocumento);
+            // Validar si el paciente ya existe 
+            var pacienteExistente = pacienteLogic.GetPacienteByDni(paciente.numeroDocumento.ToString(), paciente.tipoDocumento);
 
             if (pacienteExistente == null)
             {
