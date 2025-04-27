@@ -57,12 +57,12 @@ namespace BLL
             return true;
         }
 
-        public Paciente GetPacienteByDni(string dniTexto, TipoDocumento? tipoDocumento)
+        public Paciente GetPacienteByDni(int dni, TipoDocumento? tipoDocumento)
         {
             // Validar que el número de documento sea válido
-            if (string.IsNullOrWhiteSpace(dniTexto) || !int.TryParse(dniTexto, out int numeroDocumento) || numeroDocumento <= 0)
+            if (dni <= 0)
             {
-                throw new ArgumentException("El número de documento debe ser un valor positivo y no debe estar vacío.");
+                throw new ArgumentException("El número de documento debe ser un valor positivo.");
             }
 
             // Validar que el tipo de documento sea válido
@@ -72,7 +72,7 @@ namespace BLL
             }
 
             // Buscar el paciente por DNI y tipo de documento
-            return pacienteRepository.GetByDni(numeroDocumento, tipoDocumento.Value);
+            return pacienteRepository.GetByDni(dni, tipoDocumento.Value);
         }
     }
 }

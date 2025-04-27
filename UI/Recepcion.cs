@@ -31,15 +31,29 @@ namespace UI
         {
             try
             {
+                // Verificar si se seleccionó un tipo de documento
+                if (cbTipoDocumento.SelectedItem == null)
+                {
+                    MessageBox.Show("Debe seleccionar un tipo de documento.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Intentar convertir el texto del documento a un entero
+                if (!int.TryParse(txtDocumento.Text, out int numeroDocumento) || numeroDocumento <= 0)
+                {
+                    MessageBox.Show("Por favor, ingrese un número de documento válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 // Instanciar la lógica de negocio para pacientes  
                 var pacienteLogic = new PacienteLogic();
 
                 // Buscar el paciente por DNI  
-                var paciente = pacienteLogic.GetPacienteByDni(txtDocumento.Text, (TipoDocumento?)cbTipoDocumento.SelectedItem);
+                var paciente = pacienteLogic.GetPacienteByDni(numeroDocumento, (TipoDocumento?)cbTipoDocumento.SelectedItem);
 
                 if (paciente != null)
                 {
-                    // Si el paciente existe, cargar los datos en el formulario  
+                    // Si el paciente existe, cargar los datos en el formulario
                     txtNombre.Text = paciente.nombre;
                     txtApellido.Text = paciente.apellido;
                     txtEmail.Text = paciente.email;
@@ -53,19 +67,19 @@ namespace UI
                 }
                 else
                 {
-                    // Si el paciente no existe, limpiar el formulario y permitir el ingreso de datos  
+                    // Si el paciente no existe, limpiar el formulario
                     LimpiarFormulario();
                     MessageBox.Show("El paciente no está registrado. Complete los datos para darlo de alta.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-
             catch (ArgumentException ex)
             {
+                // Mostrar mensaje de error específico desde la BLL
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
             catch (Exception ex)
             {
+                // Manejo de errores generales
                 MessageBox.Show($"Ocurrió un error al buscar el paciente: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
