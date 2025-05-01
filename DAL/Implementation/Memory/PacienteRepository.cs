@@ -31,7 +31,7 @@ namespace DAL.Implementation.Memory
         }
         #endregion
 
-        public void add(Paciente entity)
+        public Paciente Add(Paciente entity)
         {
             throw new NotImplementedException();
         }
@@ -70,5 +70,6 @@ namespace DAL.Implementation.Memory
         {
             throw new NotImplementedException();
         }
+
     }
 }

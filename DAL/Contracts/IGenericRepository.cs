@@ -8,7 +8,7 @@ namespace DAL.Contracts
 {
     public interface IGenericRepository<T>
     {
-        void add(T obj);
+        T Add(T obj);
 
         void Update(T obj);
 

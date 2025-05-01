@@ -10,7 +10,7 @@ namespace DAL.Contracts
     public  interface IVisitaRepository : IGenericRepository<Visita>
     {
         // Método para agregar una nueva visita
-        void Add(Visita visita);
+        //Visita add(Visita visita);
 
     }
 }

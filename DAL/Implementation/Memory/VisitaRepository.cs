@@ -29,12 +29,7 @@ namespace DAL.Implementation.Memory
         }
         #endregion
 
-        public void Add(Visita visita)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void add(Visita obj)
+        public Visita Add(Visita visita)
         {
             throw new NotImplementedException();
         }

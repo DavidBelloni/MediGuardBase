@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
 using DAL.Contracts;
+using System.Runtime.InteropServices;
 
 namespace DAL.Implementation.SqlServer
 {
@@ -30,7 +31,7 @@ namespace DAL.Implementation.SqlServer
             //_list = new List<Visita>();
         }
         #endregion
-        public void Add(Visita visita)
+        public Visita Add(Visita visita)
         {
             string commandText = @"
                 INSERT INTO Visita 
@@ -50,6 +51,7 @@ namespace DAL.Implementation.SqlServer
             };
 
             SqlHelper.ExecuteNonQuery(commandText, CommandType.Text, parameters);
+            return visita;
         }
 
 
@@ -73,9 +75,5 @@ namespace DAL.Implementation.SqlServer
             throw new NotImplementedException();
         }
 
-        public void add(Visita obj)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

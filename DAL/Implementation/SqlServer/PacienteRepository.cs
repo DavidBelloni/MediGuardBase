@@ -33,7 +33,7 @@ namespace DAL.Implementation.SqlServer
             _list = new List<Paciente>();
         }
         #endregion
-        public void add(Paciente paciente)
+        public Paciente Add(Paciente paciente)
         {
             string commandText = 
                 "INSERT INTO Paciente (tipoDocumento, numeroDocumento, nombre, apellido, celular, email, sexo, fechaNacimiento, coberturaMedica, tipoCobertura, fechaCreacion) " +
@@ -55,6 +55,7 @@ namespace DAL.Implementation.SqlServer
             };
 
             SqlHelper.ExecuteNonQuery(commandText, CommandType.Text, parameters);
+            return paciente;
         }
 
         public void Delete(Guid id)
@@ -80,7 +81,7 @@ namespace DAL.Implementation.SqlServer
         public Paciente GetByDni(int numeroDocumento, TipoDocumento tipoDocumento)
         {
             
-            string commandText = "SELECT TOP 1 * FROM Paciente WHERE numeroDocumento = @numeroDocumento ";
+            string commandText = "SELECT TOP 1 * FROM Paciente WHERE numeroDocumento = @numeroDocumento AND tipoDocumento = @tipoDocumento";
             SqlParameter[] parameters = new SqlParameter[]
             {
                 new SqlParameter("@numeroDocumento", numeroDocumento),
@@ -105,7 +106,6 @@ namespace DAL.Implementation.SqlServer
                         coberturaMedica = reader.GetString(reader.GetOrdinal("coberturaMedica")),
                         tipoCobertura = (TipoCobertura)reader.GetInt32(reader.GetOrdinal("tipoCobertura")),
 
-                        // Map other properties as needed
                     };
                 }
             }

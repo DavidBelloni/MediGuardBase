@@ -23,9 +23,10 @@ namespace BLL
             pacienteRepository = FactoryDao.PacienteRepository;
         }
 
-        public void RegistrarPaciente(Paciente paciente)
-        {
-            pacienteRepository.add(paciente);
+        public Paciente RegistrarPaciente(Paciente paciente)
+        { 
+            var pacienteRegistrado = pacienteRepository.Add(paciente);
+            return pacienteRegistrado;
         }
 
         public bool ValidarDni(string dniTexto, out int dni)

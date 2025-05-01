@@ -30,24 +30,26 @@ namespace BLL
                 throw new ArgumentException("Por favor, complete todos los campos obligatorios.");
             }
 
+            Paciente pacienteFinal;
+
             // Validar si el paciente ya existe 
             var pacienteExistente = pacienteLogic.GetPacienteByDni(paciente.numeroDocumento, paciente.tipoDocumento);
 
             if (pacienteExistente == null)
             {
                 // Registrar paciente si no existe
-                pacienteLogic.RegistrarPaciente(paciente);
+                pacienteFinal = pacienteLogic.RegistrarPaciente(paciente);
             }
             else
             {
                 // Utilizar el paciente existente
-                paciente = pacienteExistente;
+                pacienteFinal = pacienteExistente;
             }
 
             // Registrar la visita
             var visita = new Visita
             {
-                idPaciente = paciente.idPaciente,
+                idPaciente = pacienteFinal.idPaciente,
                 grupoRiesgo = (GrupoRiesgo)Enum.Parse(typeof(GrupoRiesgo), grupoRiesgo),
             };
 

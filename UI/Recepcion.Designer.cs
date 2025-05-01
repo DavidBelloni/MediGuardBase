@@ -282,7 +282,6 @@
             this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
             this.dtpFechaNacimiento.Size = new System.Drawing.Size(188, 20);
             this.dtpFechaNacimiento.TabIndex = 27;
-            this.dtpFechaNacimiento.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // Recepcion
             // 

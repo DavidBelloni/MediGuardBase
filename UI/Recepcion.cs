@@ -93,6 +93,7 @@ namespace UI
             txtCel.Clear();
             cbSexo.SelectedIndex = -1;
             cbTipoCobertura.SelectedIndex = -1;
+            cbTipoDocumento.SelectedIndex = -1;
             txtCobertura.Clear();
             cbGrupoRiesgo.SelectedIndex = -1;
             dtpFechaNacimiento.Value = DateTime.Now;
@@ -147,22 +148,6 @@ namespace UI
                 // Manejo de errores generales
                 MessageBox.Show($"Ocurrió un error al registrar la visita: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-            //int numeroDocumento = int.Parse(txtDocumento.Text);
-            //string tipoDocumento = cbTipoDocumento.Text;
-            //string nombre = txtNombre.Text;
-            //string apellido = txtApellido.Text;
-            //string email = txtEmail.Text;
-            //string celular = txtCel.Text;
-            //string sexo = cbSexo.Text; // Texto seleccionado en el ComboBox
-            //string tipoCobertura = cbTipoCobertura.Text; // Texto seleccionado en el ComboBox
-            //string coberturaMedica = txtCobertura.Text;
-            //string grupoRiesgo = cbGrupoRiesgo.Text; // Grupo de riesgo seleccionado
-            //DateTime fechaNacimiento = dtpFechaNacimiento.Value;
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
