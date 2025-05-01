@@ -58,8 +58,8 @@ namespace UI
                     txtApellido.Text = paciente.apellido;
                     txtEmail.Text = paciente.email;
                     txtCel.Text = paciente.celular;
-                    cbSexo.SelectedItem = paciente.sexo;
-                    cbTipoCobertura.SelectedItem = paciente.tipoCobertura;
+                    cbSexo.SelectedIndex = (int)paciente.sexo;
+                    cbTipoCobertura.SelectedItem = (Enums.TipoCobertura)Enum.Parse(typeof(Enums.TipoCobertura), paciente.tipoCobertura.ToString());
                     txtCobertura.Text = paciente.coberturaMedica;
                     dtpFechaNacimiento.Value = paciente.fechaNacimiento;
 

@@ -17,7 +17,7 @@ namespace DOMAIN
         }
         public enum Sexo
         {
-            NoDefinido,
+            //NoDefinido,
             Masculino,
             Femenino,
             Otro

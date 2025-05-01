@@ -37,6 +37,7 @@ namespace DAL.Implementation.SqlServer
         {
             string commandText = 
                 "INSERT INTO Paciente (tipoDocumento, numeroDocumento, nombre, apellido, celular, email, sexo, fechaNacimiento, coberturaMedica, tipoCobertura, fechaCreacion) " +
+                "OUTPUT INSERTED.idPaciente " + // Devuelve el idPaciente generado automáticamente
                 "VALUES (@tipoDocumento, @numeroDocumento, @nombre, @apellido, @celular, @email, @sexo, @fechaNacimiento, @coberturaMedica, @tipoCobertura, @fechaCreacion)";
             SqlParameter[] parameters = new SqlParameter[]
             {
@@ -54,7 +55,13 @@ namespace DAL.Implementation.SqlServer
 
             };
 
-            SqlHelper.ExecuteNonQuery(commandText, CommandType.Text, parameters);
+            // Ejecutar el comando y capturar el idPaciente generado
+            object result = SqlHelper.ExecuteScalar(commandText, CommandType.Text, parameters);
+
+            // Asignar el idPaciente generado al objeto Paciente
+            paciente.idPaciente = (Guid)result;
+
+            // Devolver el objeto Paciente actualizado
             return paciente;
         }
 

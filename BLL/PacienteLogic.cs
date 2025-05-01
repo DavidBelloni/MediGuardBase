@@ -48,7 +48,7 @@ namespace BLL
                 string.IsNullOrWhiteSpace(paciente.email) ||
                 string.IsNullOrWhiteSpace(paciente.coberturaMedica) ||
                 string.IsNullOrWhiteSpace(grupoRiesgo) ||
-                paciente.sexo == Sexo.NoDefinido || // Comprobación si sexo no está definido
+                paciente.sexo < 0 || // Comprobación si sexo no está definido
                 paciente.tipoCobertura == TipoCobertura.NoDefinido ||  // Comprobación si cobertura no está definida
                 paciente.tipoDocumento == TipoDocumento.NoDefinido) // Comprobación si tipo de documento no está definido
             {
