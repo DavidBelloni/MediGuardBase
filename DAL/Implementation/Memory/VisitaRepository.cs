@@ -53,5 +53,10 @@ namespace DAL.Implementation.Memory
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<Visita> GetAll(Enums.EstadoVisita obj)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -18,7 +18,10 @@ namespace DOMAIN
         public EstadoVisita estado { get; set; } 
         public GrupoRiesgo grupoRiesgo { get; set; }
         public Guid idUsuario { get; set; }
-     
+
+        // Propiedad de navegación para el paciente
+        public Paciente Paciente { get; set; }
+
         public Visita()
         {
             fechaHoraIngreso = DateTime.Now;

@@ -37,12 +37,12 @@ namespace UI
             var visitasViewModel = visitas.Select(v => new VisitaPacienteViewModel
             {
                 idPaciente = v.idPaciente,
-                nombre = v.Paciente.nombre, // Asumiendo que tienes acceso al paciente relacionado desde la visita
+                nombre = v.Paciente.nombre,
                 apellido = v.Paciente.apellido,
                 numeroDocumento = v.Paciente.numeroDocumento.ToString(),
-                sexo = v.Paciente.sexo.ToString(),
+                sexo = v.Paciente.sexo,
                 fechaNacimiento = v.Paciente.fechaNacimiento,
-                grupoRiesgo = v.grupoRiesgo // No se convierte a string, se mantiene como GrupoRiesgo
+                grupoRiesgo = v.grupoRiesgo
             }).ToList();
 
             // Asignar la lista al DataGridView
@@ -61,10 +61,15 @@ namespace UI
                 txtNombre.Text = visitaSeleccionada.nombre;
                 txtApellido.Text = visitaSeleccionada.apellido;
                 txtDocumento.Text = visitaSeleccionada.numeroDocumento;
-                txtSexo.Text = visitaSeleccionada.sexo;
+                txtSexo.Text = visitaSeleccionada.sexo.ToString();
                 txtEdad.Text = visitaSeleccionada.Edad.ToString();
-                txtGrupoRiesgo.Text = visitaSeleccionada.grupoRiesgo;
+                txtGrupoRiesgo.Text = visitaSeleccionada.grupoRiesgo.ToString();
             }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

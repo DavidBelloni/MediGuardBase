@@ -30,6 +30,10 @@
         {
             this.dgvVisitasTriage = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtEdad = new System.Windows.Forms.TextBox();
+            this.txtGrupoRiesgo = new System.Windows.Forms.TextBox();
+            this.txtSexo = new System.Windows.Forms.TextBox();
             this.txtDocumento = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -39,36 +43,32 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtTemperatura = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtPrioridad = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.txtSexo = new System.Windows.Forms.TextBox();
-            this.txtGrupoRiesgo = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.txtEdad = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtPrioridad = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.txtTemperatura = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVisitasTriage)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dgvPacientesTriage
+            // dgvVisitasTriage
             // 
             this.dgvVisitasTriage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVisitasTriage.Location = new System.Drawing.Point(12, 43);
@@ -97,6 +97,40 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información del Paciente:";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(232, 27);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.TabIndex = 36;
+            this.label5.Text = "Edad:";
+            // 
+            // txtEdad
+            // 
+            this.txtEdad.Location = new System.Drawing.Point(235, 43);
+            this.txtEdad.Name = "txtEdad";
+            this.txtEdad.ReadOnly = true;
+            this.txtEdad.Size = new System.Drawing.Size(53, 20);
+            this.txtEdad.TabIndex = 35;
+            // 
+            // txtGrupoRiesgo
+            // 
+            this.txtGrupoRiesgo.Location = new System.Drawing.Point(235, 147);
+            this.txtGrupoRiesgo.Name = "txtGrupoRiesgo";
+            this.txtGrupoRiesgo.ReadOnly = true;
+            this.txtGrupoRiesgo.Size = new System.Drawing.Size(189, 20);
+            this.txtGrupoRiesgo.TabIndex = 34;
+            // 
+            // txtSexo
+            // 
+            this.txtSexo.Location = new System.Drawing.Point(18, 147);
+            this.txtSexo.Name = "txtSexo";
+            this.txtSexo.ReadOnly = true;
+            this.txtSexo.Size = new System.Drawing.Size(189, 20);
+            this.txtSexo.TabIndex = 33;
             // 
             // txtDocumento
             // 
@@ -192,6 +226,122 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Evaluación:";
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(13, 93);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(81, 13);
+            this.label15.TabIndex = 17;
+            this.label15.Text = "Observaciones:";
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(16, 109);
+            this.textBox8.Multiline = true;
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(407, 77);
+            this.textBox8.TabIndex = 16;
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(342, 299);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(81, 20);
+            this.textBox7.TabIndex = 15;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(235, 299);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(81, 20);
+            this.textBox6.TabIndex = 14;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(126, 299);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(81, 20);
+            this.textBox4.TabIndex = 13;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(339, 283);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(54, 13);
+            this.label14.TabIndex = 12;
+            this.label14.Text = "SpO2 (%):";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(232, 283);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(49, 13);
+            this.label13.TabIndex = 11;
+            this.label13.Text = "PA (s/d):";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(123, 283);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(51, 13);
+            this.label12.TabIndex = 10;
+            this.label12.Text = "FC (lpm): ";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(13, 283);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(90, 13);
+            this.label11.TabIndex = 9;
+            this.label11.Text = "Temperatura (Cº):";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
+            // 
+            // txtTemperatura
+            // 
+            this.txtTemperatura.Location = new System.Drawing.Point(16, 299);
+            this.txtTemperatura.Name = "txtTemperatura";
+            this.txtTemperatura.Size = new System.Drawing.Size(81, 20);
+            this.txtTemperatura.TabIndex = 8;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(16, 252);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(407, 21);
+            this.comboBox1.TabIndex = 7;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(15, 236);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(122, 13);
+            this.label9.TabIndex = 6;
+            this.label9.Text = "Especialidad Requerida:";
+            // 
+            // txtPrioridad
+            // 
+            this.txtPrioridad.FormattingEnabled = true;
+            this.txtPrioridad.Location = new System.Drawing.Point(16, 205);
+            this.txtPrioridad.Name = "txtPrioridad";
+            this.txtPrioridad.Size = new System.Drawing.Size(407, 21);
+            this.txtPrioridad.TabIndex = 5;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(15, 189);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(51, 13);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Prioridad:";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -208,22 +358,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(407, 50);
             this.textBox1.TabIndex = 1;
-            // 
-            // txtSexo
-            // 
-            this.txtSexo.Location = new System.Drawing.Point(18, 147);
-            this.txtSexo.Name = "txtSexo";
-            this.txtSexo.ReadOnly = true;
-            this.txtSexo.Size = new System.Drawing.Size(189, 20);
-            this.txtSexo.TabIndex = 33;
-            // 
-            // txtGrupoRiesgo
-            // 
-            this.txtGrupoRiesgo.Location = new System.Drawing.Point(235, 147);
-            this.txtGrupoRiesgo.Name = "txtGrupoRiesgo";
-            this.txtGrupoRiesgo.ReadOnly = true;
-            this.txtGrupoRiesgo.Size = new System.Drawing.Size(189, 20);
-            this.txtGrupoRiesgo.TabIndex = 34;
             // 
             // button1
             // 
@@ -260,139 +394,6 @@
             this.button4.TabIndex = 6;
             this.button4.Text = "Atención Inmediata";
             this.button4.UseVisualStyleBackColor = true;
-            // 
-            // txtEdad
-            // 
-            this.txtEdad.Location = new System.Drawing.Point(235, 43);
-            this.txtEdad.Name = "txtEdad";
-            this.txtEdad.ReadOnly = true;
-            this.txtEdad.Size = new System.Drawing.Size(53, 20);
-            this.txtEdad.TabIndex = 35;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(232, 27);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 36;
-            this.label5.Text = "Edad:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(15, 189);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(51, 13);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "Prioridad:";
-            // 
-            // txtPrioridad
-            // 
-            this.txtPrioridad.FormattingEnabled = true;
-            this.txtPrioridad.Location = new System.Drawing.Point(16, 205);
-            this.txtPrioridad.Name = "txtPrioridad";
-            this.txtPrioridad.Size = new System.Drawing.Size(407, 21);
-            this.txtPrioridad.TabIndex = 5;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(15, 236);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(122, 13);
-            this.label9.TabIndex = 6;
-            this.label9.Text = "Especialidad Requerida:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(16, 252);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(407, 21);
-            this.comboBox1.TabIndex = 7;
-            // 
-            // txtTemperatura
-            // 
-            this.txtTemperatura.Location = new System.Drawing.Point(16, 299);
-            this.txtTemperatura.Name = "txtTemperatura";
-            this.txtTemperatura.Size = new System.Drawing.Size(81, 20);
-            this.txtTemperatura.TabIndex = 8;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(13, 283);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(90, 13);
-            this.label11.TabIndex = 9;
-            this.label11.Text = "Temperatura (Cº):";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(123, 283);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(51, 13);
-            this.label12.TabIndex = 10;
-            this.label12.Text = "FC (lpm): ";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(232, 283);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(49, 13);
-            this.label13.TabIndex = 11;
-            this.label13.Text = "PA (s/d):";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(339, 283);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(54, 13);
-            this.label14.TabIndex = 12;
-            this.label14.Text = "SpO2 (%):";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(126, 299);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(81, 20);
-            this.textBox4.TabIndex = 13;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(235, 299);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(81, 20);
-            this.textBox6.TabIndex = 14;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(342, 299);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(81, 20);
-            this.textBox7.TabIndex = 15;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(16, 109);
-            this.textBox8.Multiline = true;
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(407, 77);
-            this.textBox8.TabIndex = 16;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(13, 93);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(81, 13);
-            this.label15.TabIndex = 17;
-            this.label15.Text = "Observaciones:";
             // 
             // Triage
             // 

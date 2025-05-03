@@ -12,7 +12,7 @@ namespace DOMAIN
         public Guid idPaciente { get; set; }
         public string nombre { get; set; }
         public string apellido { get; set; }
-        public TipoDocumento numeroDocumento { get; set; }
+        public string numeroDocumento { get; set; }
         public Sexo sexo { get; set; }
         public DateTime fechaNacimiento { get; set; }
         public GrupoRiesgo grupoRiesgo { get; set; }

@@ -69,15 +69,25 @@ namespace DAL.Implementation.SqlServer
         public IEnumerable<Visita> GetAll(EstadoVisita estado)
         {
             // Consulta SQL para obtener todas las visitas con el estado especificado
-            string commandText = "SELECT * FROM Visita WHERE estadoVisita = @estadoVisita";
+            string commandText = @"
+                SELECT v.*, 
+                       p.nombre AS PacienteNombre, 
+                       p.apellido AS PacienteApellido, 
+                       p.numeroDocumento AS PacienteDocumento, 
+                       p.sexo AS PacienteSexo, 
+                       p.fechaNacimiento AS PacienteFechaNacimiento
+                FROM Visita v
+                INNER JOIN Paciente p ON v.idPaciente = p.idPaciente
+                WHERE v.estadoVisita = @estadoVisita";
 
             SqlParameter[] parameters = new SqlParameter[]
             {
-                new SqlParameter("@estadoVisita", (int)estado) // Convertir el enum a entero
+                new SqlParameter("@estadoVisita", (int)estado)
             };
 
             try
             {
+
                 using (var reader = SqlHelper.ExecuteReader(commandText, CommandType.Text, parameters))
                 {
                     List<Visita> visitas = new List<Visita>();
@@ -92,7 +102,17 @@ namespace DAL.Implementation.SqlServer
                             fechaHoraIngreso = reader.GetDateTime(reader.GetOrdinal("fechaHoraIngreso")),
                             fechaHoraAusente = reader.IsDBNull(reader.GetOrdinal("fechahoraAusente")) ? (DateTime?)null : reader.GetDateTime(reader.GetOrdinal("fechaHoraAusente")),
                             estado = (EstadoVisita)reader.GetInt32(reader.GetOrdinal("estadoVisita")),
-                            grupoRiesgo = (GrupoRiesgo)reader.GetInt32(reader.GetOrdinal("grupoRiesgo"))
+                            grupoRiesgo = (GrupoRiesgo)reader.GetInt32(reader.GetOrdinal("grupoRiesgo")),
+
+                            // Datos del paciente relacionados
+                            Paciente = new Paciente
+                            {
+                                nombre = reader.GetString(reader.GetOrdinal("PacienteNombre")),
+                                apellido = reader.GetString(reader.GetOrdinal("PacienteApellido")),
+                                numeroDocumento = reader.GetInt32(reader.GetOrdinal("PacienteDocumento")),
+                                sexo = (Sexo)reader.GetInt32(reader.GetOrdinal("PacienteSexo")),
+                                fechaNacimiento = reader.GetDateTime(reader.GetOrdinal("PacienteFechaNacimiento"))
+                            }
                         };
                         visitas.Add(visita);
                     }

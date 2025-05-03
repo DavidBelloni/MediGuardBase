@@ -126,6 +126,10 @@ namespace DAL.Implementation.SqlServer
             return new List<Paciente>();
         }
 
+        public IEnumerable<Paciente> GetAll(EstadoVisita obj)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 
