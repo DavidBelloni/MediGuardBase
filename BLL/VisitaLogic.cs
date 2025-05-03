@@ -20,6 +20,13 @@ namespace BLL
             // Devuelve una instancia de la clase Visita
             visitaRepository = FactoryDao.VisitaRepository;
         }
+
+        public List<Visita> ObtenerVisitasPorEstado(EstadoVisita estado)
+        {
+            // Delegar el filtro al repositorio
+            return visitaRepository.GetAll(estado).ToList();
+        }
+
         public void RegistrarVisita(Paciente paciente, string grupoRiesgo)
         {
             var pacienteLogic = new PacienteLogic();

@@ -49,8 +49,8 @@ namespace BLL
                 string.IsNullOrWhiteSpace(paciente.coberturaMedica) ||
                 string.IsNullOrWhiteSpace(grupoRiesgo) ||
                 paciente.sexo < 0 || // Comprobación si sexo no está definido
-                paciente.tipoCobertura == TipoCobertura.NoDefinido ||  // Comprobación si cobertura no está definida
-                paciente.tipoDocumento == TipoDocumento.NoDefinido) // Comprobación si tipo de documento no está definido
+                paciente.tipoCobertura < 0 ||  // Comprobación si cobertura no está definida
+                paciente.tipoDocumento < 0) // Comprobación si tipo de documento no está definido
             {
                 return false;
             }
@@ -75,5 +75,6 @@ namespace BLL
             // Buscar el paciente por DNI y tipo de documento
             return pacienteRepository.GetByDni(dni, tipoDocumento.Value);
         }
+
     }
 }

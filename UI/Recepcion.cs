@@ -31,25 +31,11 @@ namespace UI
         {
             try
             {
-                // Verificar si se seleccionó un tipo de documento
-                if (cbTipoDocumento.SelectedItem == null)
-                {
-                    MessageBox.Show("Debe seleccionar un tipo de documento.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                // Intentar convertir el texto del documento a un entero
-                if (!int.TryParse(txtDocumento.Text, out int numeroDocumento) || numeroDocumento <= 0)
-                {
-                    MessageBox.Show("Por favor, ingrese un número de documento válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
                 // Instanciar la lógica de negocio para pacientes  
                 var pacienteLogic = new PacienteLogic();
 
                 // Buscar el paciente por DNI  
-                var paciente = pacienteLogic.GetPacienteByDni(numeroDocumento, (Enums.TipoDocumento)Enum.Parse(typeof(Enums.TipoDocumento), cbTipoDocumento.Text));
+                var paciente = pacienteLogic.GetPacienteByDni(Int32.Parse(txtDocumento.Text), (Enums.TipoDocumento)Enum.Parse(typeof(Enums.TipoDocumento), cbTipoDocumento.Text));
 
                 if (paciente != null)
                 {
@@ -59,7 +45,7 @@ namespace UI
                     txtEmail.Text = paciente.email;
                     txtCel.Text = paciente.celular;
                     cbSexo.SelectedIndex = (int)paciente.sexo;
-                    cbTipoCobertura.SelectedItem = (Enums.TipoCobertura)Enum.Parse(typeof(Enums.TipoCobertura), paciente.tipoCobertura.ToString());
+                    cbTipoCobertura.SelectedIndex = (int)paciente.tipoCobertura;
                     txtCobertura.Text = paciente.coberturaMedica;
                     dtpFechaNacimiento.Value = paciente.fechaNacimiento;
 

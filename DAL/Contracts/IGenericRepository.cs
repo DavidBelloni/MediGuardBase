@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static DOMAIN.Enums;
 
 namespace DAL.Contracts
 {
@@ -14,7 +15,7 @@ namespace DAL.Contracts
 
         void Delete(Guid id);
 
-        IEnumerable<T> GetAll();
+        IEnumerable<T> GetAll(EstadoVisita obj);
 
         T GetById(int id);
     }

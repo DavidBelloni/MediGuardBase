@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Collections;
 using DAL.Contracts;
 using System.Runtime.InteropServices;
+using static DOMAIN.Enums;
 
 namespace DAL.Implementation.SqlServer
 {
@@ -35,9 +36,9 @@ namespace DAL.Implementation.SqlServer
         {
             string commandText = @"
                 INSERT INTO Visita 
-                (idPaciente, idTriage, idEspecialidad, fechaHoraIngreso, fechahoraAusente, estadoVisita, grupoRiesgo) 
+                (idPaciente, idTriage, idEspecialidad, fechaHoraIngreso, fechahoraAusente, estado, grupoRiesgo) 
                 VALUES 
-                (@idPaciente, @idTriage, @idEspecialidad, @fechaHoraIngreso, @fechahoraAusente, @estadoVisita, @grupoRiesgo);";
+                (@idPaciente, @idTriage, @idEspecialidad, @fechaHoraIngreso, @fechahoraAusente, @estado, @grupoRiesgo);";
 
             SqlParameter[] parameters = new SqlParameter[]
             {
@@ -46,7 +47,7 @@ namespace DAL.Implementation.SqlServer
                 new SqlParameter("@idEspecialidad", visita.idEspecialidad),
                 new SqlParameter("@fechaHoraIngreso", visita.fechaHoraIngreso),
                 new SqlParameter("@fechahoraAusente", (object)visita.fechaHoraAusente ?? DBNull.Value), // Puede ser null
-                new SqlParameter("@estadoVisita", Convert.ToInt32(visita.estadoVisita)), // Enum EstadoVisita
+                new SqlParameter("@estado", Convert.ToInt32(visita.estado)), // Enum EstadoVisita
                 new SqlParameter("@grupoRiesgo", Convert.ToInt32(visita.grupoRiesgo)) // Enum GrupoRiesgo
             };
 
@@ -65,9 +66,45 @@ namespace DAL.Implementation.SqlServer
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Visita> GetAll()
+        public IEnumerable<Visita> GetAll(EstadoVisita estado)
         {
-            throw new NotImplementedException();
+            // Consulta SQL para obtener todas las visitas con el estado especificado
+            string commandText = "SELECT * FROM Visita WHERE estadoVisita = @estadoVisita";
+
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@estadoVisita", (int)estado) // Convertir el enum a entero
+            };
+
+            try
+            {
+                using (var reader = SqlHelper.ExecuteReader(commandText, CommandType.Text, parameters))
+                {
+                    List<Visita> visitas = new List<Visita>();
+                    while (reader.Read())
+                    {
+                        Visita visita = new Visita
+                        {
+                            idVisita = reader.GetGuid(reader.GetOrdinal("idVisita")),
+                            idPaciente = reader.GetGuid(reader.GetOrdinal("idPaciente")),
+                            idTriage = reader.GetGuid(reader.GetOrdinal("idTriage")),
+                            idEspecialidad = reader.GetGuid(reader.GetOrdinal("idEspecialidad")),
+                            fechaHoraIngreso = reader.GetDateTime(reader.GetOrdinal("fechaHoraIngreso")),
+                            fechaHoraAusente = reader.IsDBNull(reader.GetOrdinal("fechahoraAusente")) ? (DateTime?)null : reader.GetDateTime(reader.GetOrdinal("fechaHoraAusente")),
+                            estado = (EstadoVisita)reader.GetInt32(reader.GetOrdinal("estadoVisita")),
+                            grupoRiesgo = (GrupoRiesgo)reader.GetInt32(reader.GetOrdinal("grupoRiesgo"))
+                        };
+                        visitas.Add(visita);
+                    }
+                    return visitas;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejar la excepción y registrar el error
+                Console.WriteLine($"Error al obtener las visitas: {ex.Message}");
+                throw; // Relanzar la excepción para que sea manejada en niveles superiores
+            }
         }
 
         public Visita GetById(int id)

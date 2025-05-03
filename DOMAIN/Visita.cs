@@ -15,14 +15,14 @@ namespace DOMAIN
         public Guid idEspecialidad { get; set; }    
         public DateTime fechaHoraIngreso { get; set; }
         public DateTime? fechaHoraAusente { get; set; }
-        public EstadoVisita estadoVisita { get; set; } 
+        public EstadoVisita estado { get; set; } 
         public GrupoRiesgo grupoRiesgo { get; set; }
         public Guid idUsuario { get; set; }
      
         public Visita()
         {
             fechaHoraIngreso = DateTime.Now;
-            estadoVisita = EstadoVisita.EsperandoTriage;
+            estado = EstadoVisita.EsperandoTriage;
         }
 
 

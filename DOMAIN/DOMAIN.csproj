@@ -52,6 +52,7 @@
     <Compile Include="Triage.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="Visita.cs" />
+    <Compile Include="VisitaPacienteViewModel.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
