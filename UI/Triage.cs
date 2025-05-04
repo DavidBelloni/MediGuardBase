@@ -20,11 +20,6 @@ namespace UI
             InitializeComponent();
         }
 
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Triage_Load(object sender, EventArgs e)
         {
             // Instanciar la lógica de negocio para visita
@@ -36,7 +31,7 @@ namespace UI
             // Transformar las visitas y pacientes en el ViewModel
             var visitasViewModel = visitas.Select(v => new VisitaPacienteViewModel
             {
-                idPaciente = v.idPaciente,
+                //idPaciente = v.idPaciente,
                 nombre = v.Paciente.nombre,
                 apellido = v.Paciente.apellido,
                 numeroDocumento = v.Paciente.numeroDocumento.ToString(),
@@ -55,21 +50,34 @@ namespace UI
             if (e.RowIndex >= 0)
             {
                 // Obtener el objeto seleccionado del DataGridView
-                var visitaSeleccionada = (VisitaPacienteViewModel)dgvVisitasTriage.Rows[e.RowIndex].DataBoundItem;
+                var dataBoundItem = dgvVisitasTriage.Rows[e.RowIndex].DataBoundItem;
 
-                // Autocompletar los campos de texto
-                txtNombre.Text = visitaSeleccionada.nombre;
-                txtApellido.Text = visitaSeleccionada.apellido;
-                txtDocumento.Text = visitaSeleccionada.numeroDocumento;
-                txtSexo.Text = visitaSeleccionada.sexo.ToString();
-                txtEdad.Text = visitaSeleccionada.Edad.ToString();
-                txtGrupoRiesgo.Text = visitaSeleccionada.grupoRiesgo.ToString();
+                if (dataBoundItem == null)
+                {
+                    MessageBox.Show("No se encontró un objeto vinculado a la fila seleccionada.");
+                    return;
+                }
+
+                // Verifica el tipo del objeto
+                Console.WriteLine($"Tipo de DataBoundItem: {dataBoundItem.GetType().Name}");
+
+                if (dataBoundItem is VisitaPacienteViewModel visitaSeleccionada)
+                {
+                    // Autocompletar los campos de texto
+                    txtNombre.Text = visitaSeleccionada.nombre;
+                    txtApellido.Text = visitaSeleccionada.apellido;
+                    txtDocumento.Text = visitaSeleccionada.numeroDocumento;
+                    txtSexo.Text = visitaSeleccionada.sexo.ToString();
+                    txtEdad.Text = visitaSeleccionada.Edad.ToString();
+                    txtGrupoRiesgo.Text = visitaSeleccionada.grupoRiesgo.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("El objeto vinculado no es del tipo esperado (VisitaPacienteViewModel).");
+                }
             }
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
 
-        }
     }
 }

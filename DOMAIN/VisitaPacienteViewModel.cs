@@ -9,7 +9,7 @@ namespace DOMAIN
 {
     public class VisitaPacienteViewModel
     {
-        public Guid idPaciente { get; set; }
+        //public Guid idPaciente { get; set; }
         public string nombre { get; set; }
         public string apellido { get; set; }
         public string numeroDocumento { get; set; }

@@ -74,8 +74,9 @@
             this.dgvVisitasTriage.Location = new System.Drawing.Point(12, 43);
             this.dgvVisitasTriage.Name = "dgvVisitasTriage";
             this.dgvVisitasTriage.ReadOnly = true;
-            this.dgvVisitasTriage.Size = new System.Drawing.Size(258, 531);
+            this.dgvVisitasTriage.Size = new System.Drawing.Size(476, 531);
             this.dgvVisitasTriage.TabIndex = 0;
+            this.dgvVisitasTriage.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVisitasTriage_CellClick);
             // 
             // groupBox1
             // 
@@ -91,13 +92,12 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtNombre);
-            this.groupBox1.Location = new System.Drawing.Point(288, 43);
+            this.groupBox1.Location = new System.Drawing.Point(494, 43);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(446, 185);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información del Paciente:";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // label5
             // 
@@ -219,7 +219,7 @@
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Location = new System.Drawing.Point(288, 234);
+            this.groupBox2.Location = new System.Drawing.Point(494, 234);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(446, 340);
             this.groupBox2.TabIndex = 2;
@@ -299,7 +299,6 @@
             this.label11.Size = new System.Drawing.Size(90, 13);
             this.label11.TabIndex = 9;
             this.label11.Text = "Temperatura (Cº):";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // txtTemperatura
             // 
@@ -361,7 +360,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(630, 580);
+            this.button1.Location = new System.Drawing.Point(836, 580);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(104, 50);
             this.button1.TabIndex = 3;
@@ -388,7 +387,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(512, 580);
+            this.button4.Location = new System.Drawing.Point(718, 580);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(112, 50);
             this.button4.TabIndex = 6;
@@ -399,7 +398,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(746, 641);
+            this.ClientSize = new System.Drawing.Size(952, 641);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);

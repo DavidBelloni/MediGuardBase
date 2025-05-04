@@ -36,9 +36,9 @@ namespace DAL.Implementation.SqlServer
         {
             string commandText = @"
                 INSERT INTO Visita 
-                (idPaciente, idTriage, idEspecialidad, fechaHoraIngreso, fechahoraAusente, estado, grupoRiesgo) 
+                (idPaciente, idTriage, idEspecialidad, fechaHoraIngreso, fechahoraAusente, estadoVisita, grupoRiesgo) 
                 VALUES 
-                (@idPaciente, @idTriage, @idEspecialidad, @fechaHoraIngreso, @fechahoraAusente, @estado, @grupoRiesgo);";
+                (@idPaciente, @idTriage, @idEspecialidad, @fechaHoraIngreso, @fechahoraAusente, @estadoVisita, @grupoRiesgo);";
 
             SqlParameter[] parameters = new SqlParameter[]
             {
@@ -47,7 +47,7 @@ namespace DAL.Implementation.SqlServer
                 new SqlParameter("@idEspecialidad", visita.idEspecialidad),
                 new SqlParameter("@fechaHoraIngreso", visita.fechaHoraIngreso),
                 new SqlParameter("@fechahoraAusente", (object)visita.fechaHoraAusente ?? DBNull.Value), // Puede ser null
-                new SqlParameter("@estado", Convert.ToInt32(visita.estado)), // Enum EstadoVisita
+                new SqlParameter("@estadoVisita", Convert.ToInt32(visita.estado)), // Enum EstadoVisita
                 new SqlParameter("@grupoRiesgo", Convert.ToInt32(visita.grupoRiesgo)) // Enum GrupoRiesgo
             };
 

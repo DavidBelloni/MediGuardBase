@@ -79,7 +79,7 @@ namespace UI
             txtCel.Clear();
             cbSexo.SelectedIndex = -1;
             cbTipoCobertura.SelectedIndex = -1;
-            cbTipoDocumento.SelectedIndex = -1;
+            //cbTipoDocumento.SelectedIndex = -1;
             txtCobertura.Clear();
             cbGrupoRiesgo.SelectedIndex = -1;
             dtpFechaNacimiento.Value = DateTime.Now;
