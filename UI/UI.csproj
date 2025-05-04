@@ -90,6 +90,7 @@
     <EmbeddedResource Include="Triage.resx">
       <DependentUpon>Triage.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\DOMAIN.VisitaPacienteViewModel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

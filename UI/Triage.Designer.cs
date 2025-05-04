@@ -28,7 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvVisitasTriage = new System.Windows.Forms.DataGridView();
+            this.visitaPacienteViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtEdad = new System.Windows.Forms.TextBox();
@@ -44,39 +49,82 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtObservaciones = new System.Windows.Forms.TextBox();
+            this.txtO2 = new System.Windows.Forms.TextBox();
+            this.txtPA = new System.Windows.Forms.TextBox();
+            this.txtFC = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtTemperatura = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtTemp = new System.Windows.Forms.TextBox();
+            this.cbEspecialidad = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtPrioridad = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.txtMotivo = new System.Windows.Forms.TextBox();
+            this.btnRegistrarTriage = new System.Windows.Forms.Button();
+            this.btnAusente = new System.Windows.Forms.Button();
+            this.btnReimprimir = new System.Windows.Forms.Button();
+            this.btnAtencionInmediata = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numeroDocumentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grupoRiesgo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVisitasTriage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.visitaPacienteViewModelBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvVisitasTriage
             // 
+            this.dgvVisitasTriage.AllowUserToAddRows = false;
+            this.dgvVisitasTriage.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(249)))));
+            this.dgvVisitasTriage.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvVisitasTriage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvVisitasTriage.AutoGenerateColumns = false;
+            this.dgvVisitasTriage.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvVisitasTriage.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(25)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvVisitasTriage.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvVisitasTriage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvVisitasTriage.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nombreDataGridViewTextBoxColumn,
+            this.apellidoDataGridViewTextBoxColumn,
+            this.numeroDocumentoDataGridViewTextBoxColumn,
+            this.grupoRiesgo});
+            this.dgvVisitasTriage.DataSource = this.visitaPacienteViewModelBindingSource;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.ForestGreen;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvVisitasTriage.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvVisitasTriage.EnableHeadersVisualStyles = false;
             this.dgvVisitasTriage.Location = new System.Drawing.Point(12, 43);
             this.dgvVisitasTriage.Name = "dgvVisitasTriage";
             this.dgvVisitasTriage.ReadOnly = true;
             this.dgvVisitasTriage.Size = new System.Drawing.Size(476, 531);
             this.dgvVisitasTriage.TabIndex = 0;
             this.dgvVisitasTriage.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVisitasTriage_CellClick);
+            // 
+            // visitaPacienteViewModelBindingSource
+            // 
+            this.visitaPacienteViewModelBindingSource.DataSource = typeof(DOMAIN.VisitaPacienteViewModel);
             // 
             // groupBox1
             // 
@@ -204,21 +252,21 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label15);
-            this.groupBox2.Controls.Add(this.textBox8);
-            this.groupBox2.Controls.Add(this.textBox7);
-            this.groupBox2.Controls.Add(this.textBox6);
-            this.groupBox2.Controls.Add(this.textBox4);
+            this.groupBox2.Controls.Add(this.txtObservaciones);
+            this.groupBox2.Controls.Add(this.txtO2);
+            this.groupBox2.Controls.Add(this.txtPA);
+            this.groupBox2.Controls.Add(this.txtFC);
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.txtTemperatura);
-            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Controls.Add(this.txtTemp);
+            this.groupBox2.Controls.Add(this.cbEspecialidad);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.txtPrioridad);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.txtMotivo);
             this.groupBox2.Location = new System.Drawing.Point(494, 234);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(446, 340);
@@ -235,34 +283,34 @@
             this.label15.TabIndex = 17;
             this.label15.Text = "Observaciones:";
             // 
-            // textBox8
+            // txtObservaciones
             // 
-            this.textBox8.Location = new System.Drawing.Point(16, 109);
-            this.textBox8.Multiline = true;
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(407, 77);
-            this.textBox8.TabIndex = 16;
+            this.txtObservaciones.Location = new System.Drawing.Point(16, 109);
+            this.txtObservaciones.Multiline = true;
+            this.txtObservaciones.Name = "txtObservaciones";
+            this.txtObservaciones.Size = new System.Drawing.Size(407, 77);
+            this.txtObservaciones.TabIndex = 16;
             // 
-            // textBox7
+            // txtO2
             // 
-            this.textBox7.Location = new System.Drawing.Point(342, 299);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(81, 20);
-            this.textBox7.TabIndex = 15;
+            this.txtO2.Location = new System.Drawing.Point(342, 299);
+            this.txtO2.Name = "txtO2";
+            this.txtO2.Size = new System.Drawing.Size(81, 20);
+            this.txtO2.TabIndex = 15;
             // 
-            // textBox6
+            // txtPA
             // 
-            this.textBox6.Location = new System.Drawing.Point(235, 299);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(81, 20);
-            this.textBox6.TabIndex = 14;
+            this.txtPA.Location = new System.Drawing.Point(235, 299);
+            this.txtPA.Name = "txtPA";
+            this.txtPA.Size = new System.Drawing.Size(81, 20);
+            this.txtPA.TabIndex = 14;
             // 
-            // textBox4
+            // txtFC
             // 
-            this.textBox4.Location = new System.Drawing.Point(126, 299);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(81, 20);
-            this.textBox4.TabIndex = 13;
+            this.txtFC.Location = new System.Drawing.Point(126, 299);
+            this.txtFC.Name = "txtFC";
+            this.txtFC.Size = new System.Drawing.Size(81, 20);
+            this.txtFC.TabIndex = 13;
             // 
             // label14
             // 
@@ -300,20 +348,20 @@
             this.label11.TabIndex = 9;
             this.label11.Text = "Temperatura (Cº):";
             // 
-            // txtTemperatura
+            // txtTemp
             // 
-            this.txtTemperatura.Location = new System.Drawing.Point(16, 299);
-            this.txtTemperatura.Name = "txtTemperatura";
-            this.txtTemperatura.Size = new System.Drawing.Size(81, 20);
-            this.txtTemperatura.TabIndex = 8;
+            this.txtTemp.Location = new System.Drawing.Point(16, 299);
+            this.txtTemp.Name = "txtTemp";
+            this.txtTemp.Size = new System.Drawing.Size(81, 20);
+            this.txtTemp.TabIndex = 8;
             // 
-            // comboBox1
+            // cbEspecialidad
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(16, 252);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(407, 21);
-            this.comboBox1.TabIndex = 7;
+            this.cbEspecialidad.FormattingEnabled = true;
+            this.cbEspecialidad.Location = new System.Drawing.Point(16, 252);
+            this.cbEspecialidad.Name = "cbEspecialidad";
+            this.cbEspecialidad.Size = new System.Drawing.Size(407, 21);
+            this.cbEspecialidad.TabIndex = 7;
             // 
             // label9
             // 
@@ -350,66 +398,115 @@
             this.label4.TabIndex = 2;
             this.label4.Text = "Motivo de Visita:";
             // 
-            // textBox1
+            // txtMotivo
             // 
-            this.textBox1.Location = new System.Drawing.Point(16, 40);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(407, 50);
-            this.textBox1.TabIndex = 1;
+            this.txtMotivo.Location = new System.Drawing.Point(16, 40);
+            this.txtMotivo.Multiline = true;
+            this.txtMotivo.Name = "txtMotivo";
+            this.txtMotivo.Size = new System.Drawing.Size(407, 50);
+            this.txtMotivo.TabIndex = 1;
             // 
-            // button1
+            // btnRegistrarTriage
             // 
-            this.button1.Location = new System.Drawing.Point(836, 580);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(104, 50);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Registrar Triage";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnRegistrarTriage.Location = new System.Drawing.Point(836, 580);
+            this.btnRegistrarTriage.Name = "btnRegistrarTriage";
+            this.btnRegistrarTriage.Size = new System.Drawing.Size(104, 50);
+            this.btnRegistrarTriage.TabIndex = 3;
+            this.btnRegistrarTriage.Text = "Registrar Triage";
+            this.btnRegistrarTriage.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnAusente
             // 
-            this.button2.Location = new System.Drawing.Point(12, 580);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(124, 50);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Marcar Ausente";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnAusente.Location = new System.Drawing.Point(12, 580);
+            this.btnAusente.Name = "btnAusente";
+            this.btnAusente.Size = new System.Drawing.Size(124, 50);
+            this.btnAusente.TabIndex = 4;
+            this.btnAusente.Text = "Marcar Ausente";
+            this.btnAusente.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnReimprimir
             // 
-            this.button3.Location = new System.Drawing.Point(146, 580);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(124, 50);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Reimprimir Ticket";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnReimprimir.Location = new System.Drawing.Point(146, 580);
+            this.btnReimprimir.Name = "btnReimprimir";
+            this.btnReimprimir.Size = new System.Drawing.Size(124, 50);
+            this.btnReimprimir.TabIndex = 5;
+            this.btnReimprimir.Text = "Reimprimir Ticket";
+            this.btnReimprimir.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnAtencionInmediata
             // 
-            this.button4.Location = new System.Drawing.Point(718, 580);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(112, 50);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "Atención Inmediata";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnAtencionInmediata.Location = new System.Drawing.Point(718, 580);
+            this.btnAtencionInmediata.Name = "btnAtencionInmediata";
+            this.btnAtencionInmediata.Size = new System.Drawing.Size(112, 50);
+            this.btnAtencionInmediata.TabIndex = 6;
+            this.btnAtencionInmediata.Text = "Atención Inmediata";
+            this.btnAtencionInmediata.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(12, 13);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(930, 25);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "EVALUACIÓN DE TRIAGE";
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nombreDataGridViewTextBoxColumn.Width = 110;
+            // 
+            // apellidoDataGridViewTextBoxColumn
+            // 
+            this.apellidoDataGridViewTextBoxColumn.DataPropertyName = "apellido";
+            this.apellidoDataGridViewTextBoxColumn.HeaderText = "Apellido";
+            this.apellidoDataGridViewTextBoxColumn.Name = "apellidoDataGridViewTextBoxColumn";
+            this.apellidoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.apellidoDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // numeroDocumentoDataGridViewTextBoxColumn
+            // 
+            this.numeroDocumentoDataGridViewTextBoxColumn.DataPropertyName = "numeroDocumento";
+            this.numeroDocumentoDataGridViewTextBoxColumn.HeaderText = "Documento";
+            this.numeroDocumentoDataGridViewTextBoxColumn.Name = "numeroDocumentoDataGridViewTextBoxColumn";
+            this.numeroDocumentoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.numeroDocumentoDataGridViewTextBoxColumn.Width = 70;
+            // 
+            // grupoRiesgo
+            // 
+            this.grupoRiesgo.DataPropertyName = "grupoRiesgo";
+            this.grupoRiesgo.HeaderText = "Grupo de Riesgo";
+            this.grupoRiesgo.Name = "grupoRiesgo";
+            this.grupoRiesgo.ReadOnly = true;
+            this.grupoRiesgo.Width = 135;
             // 
             // Triage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(952, 641);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(954, 641);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.btnAtencionInmediata);
+            this.Controls.Add(this.btnReimprimir);
+            this.Controls.Add(this.btnAusente);
+            this.Controls.Add(this.btnRegistrarTriage);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvVisitasTriage);
             this.Name = "Triage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Triage";
             this.Load += new System.EventHandler(this.Triage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVisitasTriage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.visitaPacienteViewModelBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -432,28 +529,34 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtMotivo;
         private System.Windows.Forms.TextBox txtGrupoRiesgo;
         private System.Windows.Forms.TextBox txtSexo;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnRegistrarTriage;
+        private System.Windows.Forms.Button btnAusente;
+        private System.Windows.Forms.Button btnReimprimir;
+        private System.Windows.Forms.Button btnAtencionInmediata;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtEdad;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox txtPrioridad;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtTemperatura;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtTemp;
+        private System.Windows.Forms.ComboBox cbEspecialidad;
+        private System.Windows.Forms.TextBox txtO2;
+        private System.Windows.Forms.TextBox txtPA;
+        private System.Windows.Forms.TextBox txtFC;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtObservaciones;
+        private System.Windows.Forms.BindingSource visitaPacienteViewModelBindingSource;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn apellidoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numeroDocumentoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn grupoRiesgo;
     }
 }
