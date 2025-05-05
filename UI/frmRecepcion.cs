@@ -14,9 +14,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace UI
 {
-    public partial class Recepcion : Form
+    public partial class frmRecepcion : Form
     {
-        public Recepcion()
+        public frmRecepcion()
         {
             InitializeComponent();
         }

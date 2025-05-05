@@ -13,9 +13,9 @@ using static DOMAIN.Enums;
 
 namespace UI
 {
-    public partial class Triage : Form
+    public partial class frmTriage : Form
     {
-        public Triage()
+        public frmTriage()
         {
             InitializeComponent();
         }
@@ -42,6 +42,10 @@ namespace UI
 
             // Asignar la lista al DataGridView
             dgvVisitasTriage.DataSource = visitasViewModel;
+
+            // PENDIENTE ORDENAR LA LISTA POR PRIORIDAD Y ORDEN DE LLEGADA
+            // METER UN REFRESH EN LA DGV PARA 5 SEG
+            // Convert.ToInt32(dgvVisitasTriage.CurrentRow.Cells["idVisita"].Value),
         }
 
         private void dgvVisitasTriage_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -78,6 +82,37 @@ namespace UI
             }
         }
 
+        private void btnRegistrarTriage_Click(object sender, EventArgs e)
+        {
+            //Capturar datos del Form
+            var triageLogic = new TriageLogic();
 
+            var triage = new Triage
+            {
+                motivoVisita = txtMotivoVisita.Text,
+                nivelUrgencia = (NivelUrgencia)Enum.Parse(typeof(NivelUrgencia), cbNivelUrgencia.SelectedItem.ToString()),
+                observaciones = txtObservaciones.Text,
+                especialidad = (TipoEspecialidad)Enum.Parse(typeof(TipoEspecialidad), cbEspecialidad.SelectedItem.ToString()),
+                temperatura = Convert.ToInt32(txtTemp.Text),
+                frecuenciaCardiaca = Convert.ToInt32(txtFC.Text),
+                presionArterial = txtPA.Text,
+                saturacionOxigeno = Convert.ToInt32(txtO2.Text),
+            };
+
+            // Registrar Triage
+            try
+            {
+                 triageLogic.RegistrarTriage(triage);
+                 MessageBox.Show("Triage registrado exitosamente.");
+            }
+            
+            catch (Exception ex)
+            {
+                 MessageBox.Show($"Error al registrar el triage: {ex.Message}");
+            }
+
+            // ACTUALIZAR VISITA (ESTO DEBERIA CAMBIAR EL ESTADO DE LA VISITA Y SACAR AL PACIENTE DE LA LISTA)
+
+        }
     }
 }

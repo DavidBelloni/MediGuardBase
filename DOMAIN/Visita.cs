@@ -24,11 +24,8 @@ namespace DOMAIN
 
         public Visita()
         {
-            fechaHoraIngreso = DateTime.Now;
             estado = EstadoVisita.EsperandoTriage;
         }
-
-
 
     }
 }

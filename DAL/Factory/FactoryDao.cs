@@ -50,7 +50,19 @@ namespace DAL.Factory
                     return DAL.Implementation.SqlServer.VisitaRepository.Current;
             }
         }
+
+        public static ITriageRepository TriageRepository
+        {
+            get
+            {
+                if (backendType == (int)BackendType.Memory)
+                    return DAL.Implementation.Memory.TriageRepository.Current;
+                else
+                    return DAL.Implementation.SqlServer.TriageRepository.Current;
+            }
+        }
     }
+
 
     internal enum BackendType
     {

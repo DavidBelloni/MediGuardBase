@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class Home
+    partial class frmHome
     {
         /// <summary>
         /// Required designer variable.
@@ -55,12 +55,14 @@
             this.recepciónToolStripMenuItem.Name = "recepciónToolStripMenuItem";
             this.recepciónToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
             this.recepciónToolStripMenuItem.Text = "Recepción";
+            this.recepciónToolStripMenuItem.Click += new System.EventHandler(this.recepciónToolStripMenuItem_Click);
             // 
             // triageToolStripMenuItem
             // 
             this.triageToolStripMenuItem.Name = "triageToolStripMenuItem";
             this.triageToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.triageToolStripMenuItem.Text = "Triage";
+            this.triageToolStripMenuItem.Click += new System.EventHandler(this.triageToolStripMenuItem_Click);
             // 
             // medicoToolStripMenuItem
             // 
@@ -82,7 +84,7 @@
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // Home
+            // frmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -92,7 +94,7 @@
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Home";
+            this.Name = "frmHome";
             this.Text = "Home";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

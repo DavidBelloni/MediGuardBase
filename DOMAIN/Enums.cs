@@ -49,5 +49,19 @@ namespace DOMAIN
             NoPertenece
         }
 
+        public enum TipoEspecialidad
+        {
+            MedicoClinico,
+            Pediatria,
+            Traumatologia,
+            Cardiologia,
+            Dermatologia,
+            Ginecologia,
+            Oftalmologia,
+            Otorrinolaringologia,
+            Psiquiatria,
+            Urologia
+        }
+
     }
 }

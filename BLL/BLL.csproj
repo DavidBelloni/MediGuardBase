@@ -45,6 +45,7 @@
     <Compile Include="PacienteLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GeneradorDeTicket.cs" />
+    <Compile Include="TriageLogic.cs" />
     <Compile Include="VisitaLogic.cs" />
   </ItemGroup>
   <ItemGroup>

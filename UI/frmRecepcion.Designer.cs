@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class Recepcion
+    partial class frmRecepcion
     {
         /// <summary>
         /// Required designer variable.

@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class Medico
+    partial class frmMedico
     {
         /// <summary>
         /// Required designer variable.

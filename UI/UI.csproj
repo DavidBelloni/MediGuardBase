@@ -46,34 +46,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Home.cs">
+    <Compile Include="frmHome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Home.Designer.cs">
-      <DependentUpon>Home.cs</DependentUpon>
+    <Compile Include="frmHome.Designer.cs">
+      <DependentUpon>frmHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="Medico.cs">
+    <Compile Include="frmMedico.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Medico.Designer.cs">
-      <DependentUpon>Medico.cs</DependentUpon>
+    <Compile Include="frmMedico.Designer.cs">
+      <DependentUpon>frmMedico.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Recepcion.cs">
+    <Compile Include="frmRecepcion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Recepcion.Designer.cs">
-      <DependentUpon>Recepcion.cs</DependentUpon>
+    <Compile Include="frmRecepcion.Designer.cs">
+      <DependentUpon>frmRecepcion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Triage.cs">
+    <Compile Include="frmTriage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Triage.Designer.cs">
-      <DependentUpon>Triage.cs</DependentUpon>
+    <Compile Include="frmTriage.Designer.cs">
+      <DependentUpon>frmTriage.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Home.resx">
-      <DependentUpon>Home.cs</DependentUpon>
+    <EmbeddedResource Include="frmHome.resx">
+      <DependentUpon>frmHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -84,12 +84,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Recepcion.resx">
-      <DependentUpon>Recepcion.cs</DependentUpon>
+    <EmbeddedResource Include="frmRecepcion.resx">
+      <DependentUpon>frmRecepcion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Triage.resx">
-      <DependentUpon>Triage.cs</DependentUpon>
+    <EmbeddedResource Include="frmTriage.resx">
+      <DependentUpon>frmTriage.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\DOMAIN.Enums+TipoEspecialidad.datasource" />
     <None Include="Properties\DataSources\DOMAIN.VisitaPacienteViewModel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
