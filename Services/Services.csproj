@@ -46,8 +46,11 @@
     <Compile Include="DAL\IdiomaRepository.cs" />
     <Compile Include="DOMAIN\User.cs" />
     <Compile Include="Facade\FacadeIdioma.cs" />
+    <Compile Include="Facade\IdiomaExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="DOMAIN\Exceptions\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

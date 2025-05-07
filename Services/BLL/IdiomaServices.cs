@@ -27,7 +27,17 @@ namespace Services.BLL
 
         public string Traducir(string word)
         {
-            return IdiomaRepository.Current.Traducir(word);
+            try
+            {
+                return IdiomaRepository.Current.Traducir(word);
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones
+                // Puedes registrar el error o lanzar una excepción personalizada
+                throw new Exception("Error al traducir la palabra.", ex);
+            }
+
         }
 
     }

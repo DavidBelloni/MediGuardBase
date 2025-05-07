@@ -1,4 +1,5 @@
 ﻿using BLL.Services;
+using Services.Facade;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,7 +37,13 @@ namespace UI
 
         private void frmHome_Load(object sender, EventArgs e)
         {
-           Services.DAL.IdiomaRepository.Current.Traducir("Hola");
+            Services.DAL.IdiomaRepository.Current.Traducir("nombre");
+            string palabra = "nombre".Traducir();
+        }
+
+        private void españolToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

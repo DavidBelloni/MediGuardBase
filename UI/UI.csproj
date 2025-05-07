@@ -90,8 +90,15 @@
     <EmbeddedResource Include="frmTriage.resx">
       <DependentUpon>frmTriage.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="I18n\idioma.en-US" />
-    <None Include="I18n\idioma.es-AR" />
+    <None Include="I18n\idioma.en-US">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="I18n\idioma.es-AR">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="I18n\idioma.es-ES">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\DataSources\DOMAIN.Enums+TipoEspecialidad.datasource" />
     <None Include="Properties\DataSources\DOMAIN.VisitaPacienteViewModel.datasource" />
     <None Include="Properties\Settings.settings">

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Globalization;
+using System.Threading;
 
 namespace Services.DAL
 {
@@ -38,44 +39,17 @@ namespace Services.DAL
             path = Path.Combine(folderPath, fileName);
         }
 
-        public string Traducir(string word)
-        {
-            // Obtener la cultura actual del sistema o una cultura predeterminada
-            string cultura = CultureInfo.CurrentCulture.Name; // Ejemplo: "es-ES"
-
-            string localPath = $"{path}.{cultura}";
-
-            if (!File.Exists(localPath))
-            {
-                throw new FileNotFoundException($"El archivo de idioma para la cultura '{cultura}' no fue encontrado.");
-            }
-
-            using (StreamReader sr = new StreamReader(localPath))
-            {
-                while (!sr.EndOfStream)
-                {
-                    string line = sr.ReadLine();
-
-                    string[] strings = line.Split('=');
-                    if (strings.Length != 2) continue; // Validar formato correcto
-
-                    string key = strings[0];
-                    string value = strings[1];
-
-                    if (key.Equals(word, StringComparison.OrdinalIgnoreCase))
-                    {
-                        return value;
-                    }
-                }
-            }
-
-            throw new KeyNotFoundException($"La palabra '{word}' no fue encontrada en el archivo de idioma para la cultura '{cultura}'.");
-        }
-
-        // METODO VIEJO DONDE SE PASABA LA CULTURA
-        //public string Traducir(string word, string cultura)
+        //public string Traducir(string word)
         //{
+        //    // Obtener la cultura actual del sistema o una cultura predeterminada
+        //    string cultura = CultureInfo.CurrentCulture.Name; // Ejemplo: "es-ES"
+
         //    string localPath = $"{path}.{cultura}";
+
+        //    if (!File.Exists(localPath))
+        //    {
+        //        throw new FileNotFoundException($"El archivo de idioma para la cultura '{cultura}' no fue encontrado.");
+        //    }
 
         //    using (StreamReader sr = new StreamReader(localPath))
         //    {
@@ -84,22 +58,61 @@ namespace Services.DAL
         //            string line = sr.ReadLine();
 
         //            string[] strings = line.Split('=');
+        //            if (strings.Length != 2) continue; // Validar formato correcto
+
         //            string key = strings[0];
         //            string value = strings[1];
 
-        //            if (key.ToLower() == word.ToLower())
+        //            if (key.Equals(word, StringComparison.OrdinalIgnoreCase))
         //            {
-        //                //Tengo una palabra encontrada KEY
         //                return value;
         //            }
         //        }
         //    }
 
-        //    throw new Exception("Custom Exception");
-
+        //    throw new KeyNotFoundException($"La palabra '{word}' no fue encontrada en el archivo de idioma para la cultura '{cultura}'.");
         //}
 
+        // METODO VIEJO DONDE SE PASABA LA CULTURA
+        public string Traducir(string word)
+        {
+            try
+            {
+                string cultura = Thread.CurrentThread.CurrentCulture.Name; // Ejemplo: "es-ES"
 
+                string localPath = $"{path}.{cultura}";
 
+                using (StreamReader sr = new StreamReader(localPath))
+                {
+                    while (!sr.EndOfStream)
+                    {
+                        string line = sr.ReadLine();
+                        string[] strings = line.Split('=');
+                        string key = strings[0];
+                        string value = strings[1];
+
+                        if (key.ToLower() == word.ToLower())
+                        {
+                            //Tengo una palabra encontrada KEY
+                            return value;
+                        }
+                    }
+                }
+                // Si no se encuentra la palabra, lanza una excepción
+                throw new KeyNotFoundException($"La palabra '{word}' no fue encontrada en el archivo de idioma para la cultura '{cultura}'.");
+            }
+
+            catch (FileNotFoundException ex)
+            {
+                // Manejo de excepciones para archivo no encontrado
+                throw new FileNotFoundException($"El archivo de idioma para la cultura '{Thread.CurrentThread.CurrentCulture.Name}' no fue encontrado.", ex);
+            }
+            catch (Exception ex)
+            {
+                // Manejo de otras excepciones
+                throw new Exception($"Error al traducir la palabra '{word}': {ex.Message}", ex);
+            }
+
+        }
     }
 }
