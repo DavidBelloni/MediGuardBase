@@ -8,14 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using static DOMAIN.Enums;
 
-namespace BLL
+namespace BLL.Services
 {
-    public  class VisitaLogic
+    public  class VisitaServices
     {
 
         private readonly IVisitaRepository visitaRepository;
 
-        public VisitaLogic()
+        public VisitaServices()
         {
             // Devuelve una instancia de la clase Visita
             visitaRepository = FactoryDao.VisitaRepository;
@@ -29,7 +29,7 @@ namespace BLL
 
         public void RegistrarVisita(Paciente paciente, string grupoRiesgo)
         {
-            var pacienteLogic = new PacienteLogic();
+            var pacienteLogic = new PacienteServices();
 
             // Validar datos del paciente y formulario
             if (!pacienteLogic.ValidarDatosPaciente(paciente, grupoRiesgo))

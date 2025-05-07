@@ -48,7 +48,7 @@
     <Compile Include="Contracts\ITriageRepository.cs" />
     <Compile Include="Contracts\IVisitaRepository.cs" />
     <Compile Include="Factory\FactoryDao.cs" />
-    <Compile Include="Helpers\SqlHelpers.cs" />
+    <Compile Include="Tools\SqlHelpers.cs" />
     <Compile Include="Implementation\Memory\PacienteRepository.cs" />
     <Compile Include="Implementation\Memory\NumeroTicketRepository.cs" />
     <Compile Include="Implementation\Memory\TriageRepository.cs" />
@@ -65,6 +65,9 @@
       <Name>DOMAIN</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Tools\singleton.snippet" />
+    <None Include="Tools\staments.snippet" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

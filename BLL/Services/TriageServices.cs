@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL
+namespace BLL.Services
 {
-    public class TriageLogic
+    public class TriageServices
     {
         private readonly ITriageRepository triageRepository;
 
-        public TriageLogic()
+        public TriageServices()
         {
             // Devuelve una instancia de la clase Triage
             triageRepository = FactoryDao.TriageRepository;

@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using BLL.Interfaces;
+using BLL.Services;
 using DOMAIN;
 using System;
 using System.Collections.Generic;
@@ -23,10 +24,10 @@ namespace UI
         private void Triage_Load(object sender, EventArgs e)
         {
             // Instanciar la lógica de negocio para visita
-            var visitaLogic = new VisitaLogic();
+            var visitaServices = new VisitaServices();
 
             // Obtener la lista de visitas con pacientes en estado "Esperando Triage"
-            var visitas = visitaLogic.ObtenerVisitasPorEstado(EstadoVisita.EsperandoTriage);
+            var visitas = visitaServices.ObtenerVisitasPorEstado(EstadoVisita.EsperandoTriage);
 
             // Transformar las visitas y pacientes en el ViewModel
             var visitasViewModel = visitas.Select(v => new VisitaPacienteViewModel
@@ -85,7 +86,7 @@ namespace UI
         private void btnRegistrarTriage_Click(object sender, EventArgs e)
         {
             //Capturar datos del Form
-            var triageLogic = new TriageLogic();
+            var triageServices = new TriageServices();
 
             var triage = new Triage
             {
@@ -102,7 +103,7 @@ namespace UI
             // Registrar Triage
             try
             {
-                 triageLogic.RegistrarTriage(triage);
+                 triageServices.RegistrarTriage(triage);
                  MessageBox.Show("Triage registrado exitosamente.");
             }
             

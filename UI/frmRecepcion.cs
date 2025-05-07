@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using BLL.Services;
+using BLL.Interfaces;
 using DOMAIN;
 using System;
 using System.Collections.Generic;
@@ -32,10 +33,10 @@ namespace UI
             try
             {
                 // Instanciar la lógica de negocio para pacientes  
-                var pacienteLogic = new PacienteLogic();
+                var pacienteServices = new PacienteServices();
 
                 // Buscar el paciente por DNI  
-                var paciente = pacienteLogic.GetPacienteByDni(Int32.Parse(txtDocumento.Text), (Enums.TipoDocumento)Enum.Parse(typeof(Enums.TipoDocumento), cbTipoDocumento.Text));
+                var paciente = pacienteServices.GetPacienteByDni(Int32.Parse(txtDocumento.Text), (Enums.TipoDocumento)Enum.Parse(typeof(Enums.TipoDocumento), cbTipoDocumento.Text));
 
                 if (paciente != null)
                 {
@@ -114,8 +115,8 @@ namespace UI
                 var grupoRiesgo = cbGrupoRiesgo.Text;
 
                 // Registrar la visita mediante la lógica de negocio
-                var visitaLogic = new VisitaLogic();
-                visitaLogic.RegistrarVisita(paciente, grupoRiesgo);
+                var visitaServices = new VisitaServices();
+                visitaServices.RegistrarVisita(paciente, grupoRiesgo);
 
                 // Confirmar operación
                 MessageBox.Show("La visita ha sido registrada exitosamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);

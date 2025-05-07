@@ -11,13 +11,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static DOMAIN.Enums;
 
-namespace BLL
+namespace BLL.Services
 {
-    public class PacienteLogic
+    public class PacienteServices
     {
         private readonly IPacienteRepository pacienteRepository;
 
-        public PacienteLogic()
+        public PacienteServices()
         {
             // Devuelve una instancia de la clase Paciente
             pacienteRepository = FactoryDao.PacienteRepository;

@@ -42,11 +42,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PacienteLogic.cs" />
+    <Compile Include="Interfaces\IGenericServices.cs" />
+    <Compile Include="Interfaces\IPacienteServices.cs" />
+    <Compile Include="Interfaces\ITriageServices.cs" />
+    <Compile Include="Interfaces\IVisitaServices.cs" />
+    <Compile Include="Services\PacienteServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="GeneradorDeTicket.cs" />
-    <Compile Include="TriageLogic.cs" />
-    <Compile Include="VisitaLogic.cs" />
+    <Compile Include="Services\GeneradorDeTicket.cs" />
+    <Compile Include="Services\TriageServices.cs" />
+    <Compile Include="Services\VisitaServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
@@ -58,5 +62,6 @@
       <Name>DOMAIN</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
