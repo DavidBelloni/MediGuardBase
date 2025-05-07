@@ -26,6 +26,7 @@ namespace DAL.Factory
                     return DAL.Implementation.Memory.PacienteRepository.Current;
                 else
                     return DAL.Implementation.SqlServer.PacienteRepository.Current;
+                throw new Exception("PROBLEMAS");
             }
         }
 
@@ -37,6 +38,7 @@ namespace DAL.Factory
                     return DAL.Implementation.Memory.NumeroTicketRepository.Current;
                 else
                     return DAL.Implementation.SqlServer.NumeroTicketRepository.Current;
+                throw new Exception("PROBLEMAS");
             }
         }
 
@@ -48,6 +50,7 @@ namespace DAL.Factory
                     return DAL.Implementation.Memory.VisitaRepository.Current;
                 else
                     return DAL.Implementation.SqlServer.VisitaRepository.Current;
+                throw new Exception("PROBLEMAS");
             }
         }
 
@@ -59,6 +62,7 @@ namespace DAL.Factory
                     return DAL.Implementation.Memory.TriageRepository.Current;
                 else
                     return DAL.Implementation.SqlServer.TriageRepository.Current;
+                throw new Exception("PROBLEMAS");
             }
         }
     }

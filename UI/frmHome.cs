@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -31,6 +32,11 @@ namespace UI
             frmTriage triage = new frmTriage();
             triage.MdiParent = this; // Establece el formulario actual como padre
             triage.Show(); // Muestra el formulario hijo
+        }
+
+        private void frmHome_Load(object sender, EventArgs e)
+        {
+           Services.DAL.IdiomaRepository.Current.Traducir("Hola");
         }
     }
 }
