@@ -47,6 +47,7 @@
     <Compile Include="DOMAIN\User.cs" />
     <Compile Include="Facade\FacadeIdioma.cs" />
     <Compile Include="Facade\IdiomaExtension.cs" />
+    <Compile Include="Facade\IdiomaManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

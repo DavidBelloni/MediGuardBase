@@ -94,7 +94,6 @@
             this.españolToolStripMenuItem.Name = "españolToolStripMenuItem";
             this.españolToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.españolToolStripMenuItem.Text = "Español";
-            this.españolToolStripMenuItem.Click += new System.EventHandler(this.españolToolStripMenuItem_Click);
             // 
             // inglesToolStripMenuItem
             // 
@@ -121,7 +120,7 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmHome";
-            this.Text = "Home";
+            this.Text = "MediGuard";
             this.Load += new System.EventHandler(this.frmHome_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

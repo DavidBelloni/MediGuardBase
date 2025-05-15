@@ -12,6 +12,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static DOMAIN.Enums;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Drawing.Text;
+using Services.Facade;
 
 namespace UI
 {
@@ -20,11 +22,46 @@ namespace UI
         public frmRecepcion()
         {
             InitializeComponent();
+
+            // Suscribirse al evento de cambio de idioma
+            IdiomaManager.IdiomaCambiado += OnIdiomaCambiado;
+        }
+        private void OnIdiomaCambiado()
+        {
+            // Actualizar las traducciones cuando el idioma cambie
+            AplicarTraducciones();
+        }
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            base.OnFormClosed(e);
+
+            // Desuscribirse del evento para evitar problemas de memoria
+            IdiomaManager.IdiomaCambiado -= OnIdiomaCambiado;
         }
 
         private void Recepcion_Load(object sender, EventArgs e)
         {
-            
+            AplicarTraducciones();
+        }
+
+        private void AplicarTraducciones()
+        {
+            // Usar el método Traducir para actualizar textos
+            this.lblNombre.Text = "Nombre".Traducir();
+            this.lblApellido.Text = "Apellido".Traducir();
+            this.lblEmail.Text = "Email".Traducir();
+            this.lblCelular.Text = "Celular".Traducir();
+            this.lblSexo.Text = "Sexo".Traducir();
+            this.lblFechaNacimiento.Text = "FechaNacimiento".Traducir();
+            this.lblTipoCobertura.Text = "TipoCobertura".Traducir();
+            this.lblCoberturaMedica.Text = "CoberturaMedica".Traducir();
+            this.gbPrioridad.Text = "Prioridad".Traducir();
+            this.lblGrupoRiesgo.Text = "GrupoDeRiesgo".Traducir();
+            this.btnRegistrarVisita.Text = "RegistrarVisita".Traducir();
+            this.btnBuscar.Text = "Buscar".Traducir();
+            this.gbDatosPersonales.Text = "DatosPersonales".Traducir();
+            this.gbPacientesEsperandoTriage.Text = "PacientesEsperandoTriage".Traducir();
+
         }
 
         // Método para buscar un paciente por DNI

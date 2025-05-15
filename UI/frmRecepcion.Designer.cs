@@ -31,14 +31,14 @@
             this.btnRegistrarVisita = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.lblApellido = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.lblCelular = new System.Windows.Forms.Label();
+            this.lblSexo = new System.Windows.Forms.Label();
+            this.lblFechaNacimiento = new System.Windows.Forms.Label();
+            this.lblCoberturaMedica = new System.Windows.Forms.Label();
+            this.lblTipoCobertura = new System.Windows.Forms.Label();
             this.txtDocumento = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
@@ -46,23 +46,27 @@
             this.txtCel = new System.Windows.Forms.TextBox();
             this.txtCobertura = new System.Windows.Forms.TextBox();
             this.cbGrupoRiesgo = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lblGrupoRiesgo = new System.Windows.Forms.Label();
             this.cbSexo = new System.Windows.Forms.ComboBox();
             this.cbTipoCobertura = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.cbTipoDocumento = new System.Windows.Forms.ComboBox();
             this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gbDatosPersonales = new System.Windows.Forms.GroupBox();
+            this.gbPrioridad = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.dgvEsperandoTriage = new System.Windows.Forms.DataGridView();
+            this.gbPacientesEsperandoTriage = new System.Windows.Forms.GroupBox();
+            this.gbDatosPersonales.SuspendLayout();
+            this.gbPrioridad.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEsperandoTriage)).BeginInit();
+            this.gbPacientesEsperandoTriage.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnRegistrarVisita
             // 
-            this.btnRegistrarVisita.Location = new System.Drawing.Point(282, 474);
+            this.btnRegistrarVisita.Location = new System.Drawing.Point(23, 566);
             this.btnRegistrarVisita.Name = "btnRegistrarVisita";
             this.btnRegistrarVisita.Size = new System.Drawing.Size(189, 37);
             this.btnRegistrarVisita.TabIndex = 0;
@@ -89,77 +93,77 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Documento:";
             // 
-            // label2
+            // lblNombre
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 35);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Nombre:";
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Location = new System.Drawing.Point(13, 35);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(47, 13);
+            this.lblNombre.TabIndex = 3;
+            this.lblNombre.Text = "Nombre:";
             // 
-            // label3
+            // lblApellido
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 74);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Apellido:";
+            this.lblApellido.AutoSize = true;
+            this.lblApellido.Location = new System.Drawing.Point(13, 74);
+            this.lblApellido.Name = "lblApellido";
+            this.lblApellido.Size = new System.Drawing.Size(47, 13);
+            this.lblApellido.TabIndex = 4;
+            this.lblApellido.Text = "Apellido:";
             // 
-            // label4
+            // lblEmail
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 113);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Email:";
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Location = new System.Drawing.Point(13, 113);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(35, 13);
+            this.lblEmail.TabIndex = 5;
+            this.lblEmail.Text = "Email:";
             // 
-            // label5
+            // lblCelular
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 152);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(42, 13);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Celular:";
+            this.lblCelular.AutoSize = true;
+            this.lblCelular.Location = new System.Drawing.Point(13, 152);
+            this.lblCelular.Name = "lblCelular";
+            this.lblCelular.Size = new System.Drawing.Size(42, 13);
+            this.lblCelular.TabIndex = 6;
+            this.lblCelular.Text = "Celular:";
             // 
-            // label6
+            // lblSexo
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(14, 191);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(34, 13);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Sexo:";
+            this.lblSexo.AutoSize = true;
+            this.lblSexo.Location = new System.Drawing.Point(14, 191);
+            this.lblSexo.Name = "lblSexo";
+            this.lblSexo.Size = new System.Drawing.Size(34, 13);
+            this.lblSexo.TabIndex = 7;
+            this.lblSexo.Text = "Sexo:";
             // 
-            // label7
+            // lblFechaNacimiento
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(257, 35);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(96, 13);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "Fecha Nacimiento:";
+            this.lblFechaNacimiento.AutoSize = true;
+            this.lblFechaNacimiento.Location = new System.Drawing.Point(257, 35);
+            this.lblFechaNacimiento.Name = "lblFechaNacimiento";
+            this.lblFechaNacimiento.Size = new System.Drawing.Size(96, 13);
+            this.lblFechaNacimiento.TabIndex = 8;
+            this.lblFechaNacimiento.Text = "Fecha Nacimiento:";
             // 
-            // label8
+            // lblCoberturaMedica
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(257, 113);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(94, 13);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "Cobertura Medica:";
+            this.lblCoberturaMedica.AutoSize = true;
+            this.lblCoberturaMedica.Location = new System.Drawing.Point(257, 113);
+            this.lblCoberturaMedica.Name = "lblCoberturaMedica";
+            this.lblCoberturaMedica.Size = new System.Drawing.Size(94, 13);
+            this.lblCoberturaMedica.TabIndex = 9;
+            this.lblCoberturaMedica.Text = "Cobertura Medica:";
             // 
-            // label9
+            // lblTipoCobertura
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(257, 74);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(80, 13);
-            this.label9.TabIndex = 10;
-            this.label9.Text = "Tipo Cobertura:";
+            this.lblTipoCobertura.AutoSize = true;
+            this.lblTipoCobertura.Location = new System.Drawing.Point(257, 74);
+            this.lblTipoCobertura.Name = "lblTipoCobertura";
+            this.lblTipoCobertura.Size = new System.Drawing.Size(80, 13);
+            this.lblTipoCobertura.TabIndex = 10;
+            this.lblTipoCobertura.Text = "Tipo Cobertura:";
             // 
             // txtDocumento
             // 
@@ -218,14 +222,14 @@
             this.cbGrupoRiesgo.Size = new System.Drawing.Size(188, 21);
             this.cbGrupoRiesgo.TabIndex = 21;
             // 
-            // label10
+            // lblGrupoRiesgo
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(14, 22);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(90, 13);
-            this.label10.TabIndex = 22;
-            this.label10.Text = "Grupo de Riesgo:";
+            this.lblGrupoRiesgo.AutoSize = true;
+            this.lblGrupoRiesgo.Location = new System.Drawing.Point(14, 22);
+            this.lblGrupoRiesgo.Name = "lblGrupoRiesgo";
+            this.lblGrupoRiesgo.Size = new System.Drawing.Size(90, 13);
+            this.lblGrupoRiesgo.TabIndex = 22;
+            this.lblGrupoRiesgo.Text = "Grupo de Riesgo:";
             // 
             // cbSexo
             // 
@@ -282,41 +286,41 @@
             this.dtpFechaNacimiento.Size = new System.Drawing.Size(188, 20);
             this.dtpFechaNacimiento.TabIndex = 27;
             // 
-            // groupBox1
+            // gbDatosPersonales
             // 
-            this.groupBox1.Controls.Add(this.cbSexo);
-            this.groupBox1.Controls.Add(this.dtpFechaNacimiento);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.cbTipoCobertura);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.txtCobertura);
-            this.groupBox1.Controls.Add(this.txtNombre);
-            this.groupBox1.Controls.Add(this.txtCel);
-            this.groupBox1.Controls.Add(this.txtApellido);
-            this.groupBox1.Controls.Add(this.txtEmail);
-            this.groupBox1.Location = new System.Drawing.Point(23, 144);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(465, 251);
-            this.groupBox1.TabIndex = 28;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Datos Personales:";
+            this.gbDatosPersonales.Controls.Add(this.cbSexo);
+            this.gbDatosPersonales.Controls.Add(this.dtpFechaNacimiento);
+            this.gbDatosPersonales.Controls.Add(this.lblNombre);
+            this.gbDatosPersonales.Controls.Add(this.lblApellido);
+            this.gbDatosPersonales.Controls.Add(this.lblEmail);
+            this.gbDatosPersonales.Controls.Add(this.cbTipoCobertura);
+            this.gbDatosPersonales.Controls.Add(this.lblCelular);
+            this.gbDatosPersonales.Controls.Add(this.lblSexo);
+            this.gbDatosPersonales.Controls.Add(this.lblFechaNacimiento);
+            this.gbDatosPersonales.Controls.Add(this.lblCoberturaMedica);
+            this.gbDatosPersonales.Controls.Add(this.lblTipoCobertura);
+            this.gbDatosPersonales.Controls.Add(this.txtCobertura);
+            this.gbDatosPersonales.Controls.Add(this.txtNombre);
+            this.gbDatosPersonales.Controls.Add(this.txtCel);
+            this.gbDatosPersonales.Controls.Add(this.txtApellido);
+            this.gbDatosPersonales.Controls.Add(this.txtEmail);
+            this.gbDatosPersonales.Location = new System.Drawing.Point(23, 144);
+            this.gbDatosPersonales.Name = "gbDatosPersonales";
+            this.gbDatosPersonales.Size = new System.Drawing.Size(465, 251);
+            this.gbDatosPersonales.TabIndex = 28;
+            this.gbDatosPersonales.TabStop = false;
+            this.gbDatosPersonales.Text = "Datos Personales:";
             // 
-            // groupBox2
+            // gbPrioridad
             // 
-            this.groupBox2.Controls.Add(this.cbGrupoRiesgo);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Location = new System.Drawing.Point(23, 401);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(465, 57);
-            this.groupBox2.TabIndex = 29;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Prioridad:";
+            this.gbPrioridad.Controls.Add(this.cbGrupoRiesgo);
+            this.gbPrioridad.Controls.Add(this.lblGrupoRiesgo);
+            this.gbPrioridad.Location = new System.Drawing.Point(23, 401);
+            this.gbPrioridad.Name = "gbPrioridad";
+            this.gbPrioridad.Size = new System.Drawing.Size(465, 57);
+            this.gbPrioridad.TabIndex = 29;
+            this.gbPrioridad.TabStop = false;
+            this.gbPrioridad.Text = "Prioridad:";
             // 
             // groupBox3
             // 
@@ -332,24 +336,47 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Busqueda:";
             // 
-            // Recepcion
+            // dgvEsperandoTriage
+            // 
+            this.dgvEsperandoTriage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEsperandoTriage.Location = new System.Drawing.Point(6, 19);
+            this.dgvEsperandoTriage.Name = "dgvEsperandoTriage";
+            this.dgvEsperandoTriage.Size = new System.Drawing.Size(352, 375);
+            this.dgvEsperandoTriage.TabIndex = 31;
+            // 
+            // gbPacientesEsperandoTriage
+            // 
+            this.gbPacientesEsperandoTriage.Controls.Add(this.dgvEsperandoTriage);
+            this.gbPacientesEsperandoTriage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbPacientesEsperandoTriage.Location = new System.Drawing.Point(494, 58);
+            this.gbPacientesEsperandoTriage.Name = "gbPacientesEsperandoTriage";
+            this.gbPacientesEsperandoTriage.Size = new System.Drawing.Size(364, 400);
+            this.gbPacientesEsperandoTriage.TabIndex = 32;
+            this.gbPacientesEsperandoTriage.TabStop = false;
+            this.gbPacientesEsperandoTriage.Text = "Pacientes Esperando Triage:";
+            // 
+            // frmRecepcion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(509, 540);
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.ClientSize = new System.Drawing.Size(871, 626);
+            this.Controls.Add(this.gbPacientesEsperandoTriage);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbPrioridad);
+            this.Controls.Add(this.gbDatosPersonales);
             this.Controls.Add(this.btnRegistrarVisita);
-            this.Name = "Recepcion";
+            this.Name = "frmRecepcion";
             this.Text = "Recepcion";
             this.Load += new System.EventHandler(this.Recepcion_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.gbDatosPersonales.ResumeLayout(false);
+            this.gbDatosPersonales.PerformLayout();
+            this.gbPrioridad.ResumeLayout(false);
+            this.gbPrioridad.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEsperandoTriage)).EndInit();
+            this.gbPacientesEsperandoTriage.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -359,14 +386,14 @@
         private System.Windows.Forms.Button btnRegistrarVisita;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.Label lblApellido;
+        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.Label lblCelular;
+        private System.Windows.Forms.Label lblSexo;
+        private System.Windows.Forms.Label lblFechaNacimiento;
+        private System.Windows.Forms.Label lblCoberturaMedica;
+        private System.Windows.Forms.Label lblTipoCobertura;
         private System.Windows.Forms.TextBox txtDocumento;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtApellido;
@@ -374,14 +401,16 @@
         private System.Windows.Forms.TextBox txtCel;
         private System.Windows.Forms.TextBox txtCobertura;
         private System.Windows.Forms.ComboBox cbGrupoRiesgo;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblGrupoRiesgo;
         private System.Windows.Forms.ComboBox cbSexo;
         private System.Windows.Forms.ComboBox cbTipoCobertura;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox cbTipoDocumento;
         private System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbDatosPersonales;
+        private System.Windows.Forms.GroupBox gbPrioridad;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.DataGridView dgvEsperandoTriage;
+        private System.Windows.Forms.GroupBox gbPacientesEsperandoTriage;
     }
 }
