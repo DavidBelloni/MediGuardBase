@@ -13,11 +13,9 @@ namespace DOMAIN
         public Visita visita { get; set; }
         public string tratamiento { get; set; }
         public string diagnostico { get; set; }
-        public string antecedentes { get; set; }
         public string alergias { get; set; }    
         public DateTime fechaHoraInicio { get; set; }
         public DateTime? fechaHoraFin { get; set; }  
-        public string medicacionHabitual { get; set; }
 
   
 

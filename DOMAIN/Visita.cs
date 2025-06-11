@@ -17,7 +17,6 @@ namespace DOMAIN
         public DateTime? fechaHoraAusente { get; set; }
         public EstadoVisita estado { get; set; } 
         public GrupoRiesgo grupoRiesgo { get; set; }
-        public Guid idUsuario { get; set; }
 
         // Propiedad de navegación para el paciente
         public Paciente Paciente { get; set; }
