@@ -45,15 +45,10 @@
     <Compile Include="Consultorio.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Especialidad.cs" />
-    <Compile Include="Familia.cs" />
     <Compile Include="Paciente.cs" />
-    <Compile Include="PantallaLlamados.cs" />
-    <Compile Include="Patente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SalaDeEspera.cs" />
-    <Compile Include="Turno.cs" />
+    <Compile Include="NumeroAtencion.cs" />
     <Compile Include="Triage.cs" />
-    <Compile Include="Usuario.cs" />
     <Compile Include="Visita.cs" />
     <Compile Include="VisitaPacienteViewModel.cs" />
   </ItemGroup>

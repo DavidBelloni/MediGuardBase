@@ -9,21 +9,21 @@ namespace DOMAIN
 {
     public class Visita
     {
-        public Guid idVisita { get; set; }
-        public Guid idPaciente { get; set; }
-        public Guid idTriage { get; set; }
-        public Guid idEspecialidad { get; set; }    
-        public DateTime fechaHoraIngreso { get; set; }
-        public DateTime? fechaHoraAusente { get; set; }
-        public EstadoVisita estado { get; set; } 
-        public GrupoRiesgo grupoRiesgo { get; set; }
+        public Guid IdVisita { get; set; }
+        public Guid IdPaciente { get; set; }
+        public Guid IdTriage { get; set; }
+        public Guid IdEspecialidad { get; set; }    
+        public DateTime FechaHoraIngreso { get; set; }
+        public DateTime? FechaHoraAusente { get; set; }
+        public EstadoVisita Estado { get; set; } 
+        public GrupoRiesgo GrupoRiesgo { get; set; }
 
         // Propiedad de navegación para el paciente
         public Paciente Paciente { get; set; }
 
         public Visita()
         {
-            estado = EstadoVisita.EsperandoTriage;
+            Estado = EstadoVisita.EsperandoTriage;
         }
 
     }

@@ -9,10 +9,9 @@ namespace DOMAIN
 {
     public class Especialidad
     {
-        public Guid idEspecialidad { get; set; }
-        public TipoEspecialidad tipo { get; set; }
-        public string descripcion { get; set; }
-        public string prefijo { get; set; }
+        public Guid IdEspecialidad { get; set; }
+        public string Nombre { get; set; }
+        public string Prefijo { get; set; }
 
     }
 }

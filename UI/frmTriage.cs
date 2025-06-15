@@ -38,7 +38,7 @@ namespace UI
                 numeroDocumento = v.Paciente.numeroDocumento.ToString(),
                 sexo = v.Paciente.sexo,
                 fechaNacimiento = v.Paciente.fechaNacimiento,
-                grupoRiesgo = v.grupoRiesgo
+                grupoRiesgo = v.GrupoRiesgo
             }).ToList();
 
             // Asignar la lista al DataGridView
@@ -90,14 +90,14 @@ namespace UI
 
             var triage = new Triage
             {
-                motivoVisita = txtMotivoVisita.Text,
-                nivelUrgencia = (NivelUrgencia)Enum.Parse(typeof(NivelUrgencia), cbNivelUrgencia.SelectedItem.ToString()),
-                observaciones = txtObservaciones.Text,
-                especialidad = (TipoEspecialidad)Enum.Parse(typeof(TipoEspecialidad), cbEspecialidad.SelectedItem.ToString()),
-                temperatura = Convert.ToInt32(txtTemp.Text),
-                frecuenciaCardiaca = Convert.ToInt32(txtFC.Text),
-                presionArterial = txtPA.Text,
-                saturacionOxigeno = Convert.ToInt32(txtO2.Text),
+                MotivoVisita = txtMotivoVisita.Text,
+                NivelTriage = (NivelUrgencia)Enum.Parse(typeof(NivelUrgencia), cbNivelUrgencia.SelectedItem.ToString()),
+                Observaciones = txtObservaciones.Text,
+                EspecialidadAsignada = Guid.Parse(cbEspecialidad.SelectedValue.ToString()),
+                Temperatura = Convert.ToInt32(txtTemp.Text),
+                FrecuenciaCardiaca = Convert.ToInt32(txtFC.Text),
+                PresionArterial = txtPA.Text,
+                SaturacionOxigeno = Convert.ToInt32(txtO2.Text),
             };
 
             // Registrar Triage
@@ -115,5 +115,6 @@ namespace UI
             // ACTUALIZAR VISITA (ESTO DEBERIA CAMBIAR EL ESTADO DE LA VISITA Y SACAR AL PACIENTE DE LA LISTA)
 
         }
+
     }
 }

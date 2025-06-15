@@ -9,18 +9,17 @@ namespace DOMAIN
 {
     public class Triage
     {
-        public Guid idTriage { get; set; }
-        public string motivoVisita { get; set; }
-        public NivelUrgencia nivelUrgencia { get; set; }
-        public string observaciones { get; set; }
-        public TipoEspecialidad especialidad { get; set; }
-        public float temperatura { get; set; }
-        public int frecuenciaCardiaca { get; set; }
-        public string presionArterial { get; set; }
-        public float saturacionOxigeno { get; set; }
-        public DateTime fechaHoraTriage { get; set; }
+        public Guid IdTriage { get; set; }
+        public string MotivoVisita { get; set; }
+        public NivelUrgencia NivelTriage { get; set; }
+        public string Observaciones { get; set; }
+        public Guid EspecialidadAsignada { get; set; }
+        public float Temperatura { get; set; }
+        public int FrecuenciaCardiaca { get; set; }
+        public string PresionArterial { get; set; }
+        public float SaturacionOxigeno { get; set; }
+        public DateTime FechaHoraTriage { get; set; }
 
-        public Visita Visita { get; set; }
         public Triage()
         {
         }

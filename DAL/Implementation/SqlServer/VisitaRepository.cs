@@ -36,19 +36,19 @@ namespace DAL.Implementation.SqlServer
         {
             string commandText = @"
                 INSERT INTO Visita 
-                (idPaciente, idTriage, idEspecialidad, fechaHoraIngreso, fechahoraAusente, estadoVisita, grupoRiesgo) 
+                (IdPaciente, IdTriage, IdEspecialidad, FechaHoraIngreso, fechahoraAusente, estadoVisita, GrupoRiesgo) 
                 VALUES 
-                (@idPaciente, @idTriage, @idEspecialidad, @fechaHoraIngreso, @fechahoraAusente, @estadoVisita, @grupoRiesgo);";
+                (@IdPaciente, @IdTriage, @IdEspecialidad, @FechaHoraIngreso, @fechahoraAusente, @estadoVisita, @GrupoRiesgo);";
 
             SqlParameter[] parameters = new SqlParameter[]
             {
-                new SqlParameter("@idPaciente", visita.idPaciente),
-                new SqlParameter("@idTriage", visita.idTriage), 
-                new SqlParameter("@idEspecialidad", visita.idEspecialidad),
-                new SqlParameter("@fechaHoraIngreso", visita.fechaHoraIngreso),
-                new SqlParameter("@fechahoraAusente", (object)visita.fechaHoraAusente ?? DBNull.Value), // Puede ser null
-                new SqlParameter("@estadoVisita", Convert.ToInt32(visita.estado)), // Enum EstadoVisita
-                new SqlParameter("@grupoRiesgo", Convert.ToInt32(visita.grupoRiesgo)) // Enum GrupoRiesgo
+                new SqlParameter("@IdPaciente", visita.IdPaciente),
+                new SqlParameter("@IdTriage", visita.IdTriage), 
+                new SqlParameter("@IdEspecialidad", visita.IdEspecialidad),
+                new SqlParameter("@FechaHoraIngreso", visita.FechaHoraIngreso),
+                new SqlParameter("@fechahoraAusente", (object)visita.FechaHoraAusente ?? DBNull.Value), // Puede ser null
+                new SqlParameter("@estadoVisita", Convert.ToInt32(visita.Estado)), // Enum EstadoVisita
+                new SqlParameter("@GrupoRiesgo", Convert.ToInt32(visita.GrupoRiesgo)) // Enum GrupoRiesgo
             };
 
             SqlHelper.ExecuteNonQuery(commandText, CommandType.Text, parameters);
@@ -77,7 +77,7 @@ namespace DAL.Implementation.SqlServer
                        p.sexo AS PacienteSexo, 
                        p.fechaNacimiento AS PacienteFechaNacimiento
                 FROM Visita v
-                INNER JOIN Paciente p ON v.idPaciente = p.idPaciente
+                INNER JOIN Paciente p ON v.IdPaciente = p.IdPaciente
                 WHERE v.estadoVisita = @estadoVisita";
 
             SqlParameter[] parameters = new SqlParameter[]
@@ -95,14 +95,14 @@ namespace DAL.Implementation.SqlServer
                     {
                         Visita visita = new Visita
                         {
-                            idVisita = reader.GetGuid(reader.GetOrdinal("idVisita")),
-                            idPaciente = reader.GetGuid(reader.GetOrdinal("idPaciente")),
-                            idTriage = reader.GetGuid(reader.GetOrdinal("idTriage")),
-                            idEspecialidad = reader.GetGuid(reader.GetOrdinal("idEspecialidad")),
-                            fechaHoraIngreso = reader.GetDateTime(reader.GetOrdinal("fechaHoraIngreso")),
-                            fechaHoraAusente = reader.IsDBNull(reader.GetOrdinal("fechahoraAusente")) ? (DateTime?)null : reader.GetDateTime(reader.GetOrdinal("fechaHoraAusente")),
-                            estado = (EstadoVisita)reader.GetInt32(reader.GetOrdinal("estadoVisita")),
-                            grupoRiesgo = (GrupoRiesgo)reader.GetInt32(reader.GetOrdinal("grupoRiesgo")),
+                            IdVisita = reader.GetGuid(reader.GetOrdinal("IdVisita")),
+                            IdPaciente = reader.GetGuid(reader.GetOrdinal("IdPaciente")),
+                            IdTriage = reader.GetGuid(reader.GetOrdinal("IdTriage")),
+                            IdEspecialidad = reader.GetGuid(reader.GetOrdinal("IdEspecialidad")),
+                            FechaHoraIngreso = reader.GetDateTime(reader.GetOrdinal("FechaHoraIngreso")),
+                            FechaHoraAusente = reader.IsDBNull(reader.GetOrdinal("fechahoraAusente")) ? (DateTime?)null : reader.GetDateTime(reader.GetOrdinal("FechaHoraAusente")),
+                            Estado = (EstadoVisita)reader.GetInt32(reader.GetOrdinal("estadoVisita")),
+                            GrupoRiesgo = (GrupoRiesgo)reader.GetInt32(reader.GetOrdinal("GrupoRiesgo")),
 
                             // Datos del paciente relacionados
                             Paciente = new Paciente

@@ -56,8 +56,8 @@ namespace BLL.Services
             // Registrar la visita
             var visita = new Visita
             {
-                idPaciente = pacienteFinal.idPaciente,
-                grupoRiesgo = (GrupoRiesgo)Enum.Parse(typeof(GrupoRiesgo), grupoRiesgo),
+                IdPaciente = pacienteFinal.idPaciente,
+                GrupoRiesgo = (GrupoRiesgo)Enum.Parse(typeof(GrupoRiesgo), grupoRiesgo),
             };
 
             // Agregar la visita al repositorio

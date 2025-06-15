@@ -37,7 +37,7 @@ namespace DAL.Implementation.SqlServer
         {
             string commandText = 
                 "INSERT INTO Paciente (tipoDocumento, numeroDocumento, nombre, apellido, celular, email, sexo, fechaNacimiento, coberturaMedica, tipoCobertura, fechaCreacion) " +
-                "OUTPUT INSERTED.idPaciente " + // Devuelve el idPaciente generado automáticamente
+                "OUTPUT INSERTED.IdPaciente " + // Devuelve el idPaciente generado automáticamente
                 "VALUES (@tipoDocumento, @numeroDocumento, @nombre, @apellido, @celular, @email, @sexo, @fechaNacimiento, @coberturaMedica, @tipoCobertura, @fechaCreacion)";
             SqlParameter[] parameters = new SqlParameter[]
             {
@@ -101,7 +101,7 @@ namespace DAL.Implementation.SqlServer
                 {
                     return new Paciente
                     {
-                        idPaciente = reader.GetGuid(reader.GetOrdinal("idPaciente")),
+                        idPaciente = reader.GetGuid(reader.GetOrdinal("IdPaciente")),
                         numeroDocumento = reader.GetInt32(reader.GetOrdinal("numeroDocumento")),
                         tipoDocumento = (TipoDocumento)reader.GetInt32(reader.GetOrdinal("tipoDocumento")),
                         nombre = reader.GetString(reader.GetOrdinal("nombre")),

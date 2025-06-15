@@ -150,9 +150,9 @@
             // 
             // grupoRiesgo
             // 
-            this.grupoRiesgo.DataPropertyName = "grupoRiesgo";
+            this.grupoRiesgo.DataPropertyName = "GrupoRiesgo";
             this.grupoRiesgo.HeaderText = "Grupo de Riesgo";
-            this.grupoRiesgo.Name = "grupoRiesgo";
+            this.grupoRiesgo.Name = "GrupoRiesgo";
             this.grupoRiesgo.ReadOnly = true;
             this.grupoRiesgo.Width = 135;
             // 
@@ -504,10 +504,6 @@
             this.label7.Size = new System.Drawing.Size(930, 25);
             this.label7.TabIndex = 7;
             this.label7.Text = "EVALUACIÓN DE TRIAGE";
-            // 
-            // tipoEspecialidadBindingSource
-            // 
-            this.tipoEspecialidadBindingSource.DataSource = typeof(DOMAIN.Enums.TipoEspecialidad);
             // 
             // frmTriage
             // 

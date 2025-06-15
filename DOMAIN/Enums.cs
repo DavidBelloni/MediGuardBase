@@ -40,6 +40,8 @@ namespace DOMAIN
             Amarillo,
             Verde
         }
+
+        //Se podria eliminar y que sea tipo boolean
         public enum GrupoRiesgo
         {
             Mayor80,
@@ -47,20 +49,6 @@ namespace DOMAIN
             LactanteMenor30Dias,
             Embarazada,
             NoPertenece
-        }
-
-        public enum TipoEspecialidad
-        {
-            MedicoClinico,
-            Pediatria,
-            Traumatologia,
-            Cardiologia,
-            Dermatologia,
-            Ginecologia,
-            Oftalmologia,
-            Otorrinolaringologia,
-            Psiquiatria,
-            Urologia
         }
 
     }
