@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace DOMAIN
 {
-    public class Patente : Componente
+    // Clase que representa una patente(permiso) individual, que hereda de Component
+    public class Patente : Component
     {
-        public Patente(string nombre) : base(nombre) { }
+        public Patente(string nombre, string descripcion) : base(nombre, descripcion) { }
 
         public override List<Patente> ObtenerPatentes()
         {

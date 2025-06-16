@@ -44,7 +44,7 @@
   <ItemGroup>
     <Compile Include="BLL\IdiomaServices.cs" />
     <Compile Include="DAL\IdiomaRepository.cs" />
-    <Compile Include="DOMAIN\Componente.cs" />
+    <Compile Include="DOMAIN\Component.cs" />
     <Compile Include="DOMAIN\Familia.cs" />
     <Compile Include="DOMAIN\Patente.cs" />
     <Compile Include="DOMAIN\Usuario.cs" />

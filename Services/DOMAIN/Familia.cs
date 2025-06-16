@@ -7,20 +7,23 @@ using System.Threading.Tasks;
 
 namespace DOMAIN
 {
-    public class Familia : Componente
+    // clase que representa una familia de permisos, que hereda de Component
+    public class Familia : Component
     {
-        private readonly List<Componente> _hijos = new List<Componente>();
+        private readonly List<Component> _hijos = new List<Component>();
 
-        public Familia(string nombre) : base(nombre) { }
+        public Familia(string nombre, string descripcion) : base(nombre, descripcion) { }
 
-        public void Agregar(Componente componente)
+        public void Agregar(Component componente)
         {
-            _hijos.Add(componente);
+            if (!_hijos.Contains(componente))
+                _hijos.Add(componente);
         }
 
-        public void Quitar(Componente componente)
+        public void Quitar(Component componente)
         {
-            _hijos.Remove(componente);
+            if (_hijos.Contains(componente))
+                _hijos.Remove(componente);
         }
 
         public override List<Patente> ObtenerPatentes()
