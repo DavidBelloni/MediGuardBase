@@ -33,11 +33,11 @@ namespace UI
             var visitasViewModel = visitas.Select(v => new VisitaPacienteViewModel
             {
                 //idPaciente = v.idPaciente,
-                nombre = v.Paciente.nombre,
-                apellido = v.Paciente.apellido,
-                numeroDocumento = v.Paciente.numeroDocumento.ToString(),
-                sexo = v.Paciente.sexo,
-                fechaNacimiento = v.Paciente.fechaNacimiento,
+                nombre = v.Paciente.Nombre,
+                apellido = v.Paciente.Apellido,
+                numeroDocumento = v.Paciente.NumeroDocumento.ToString(),
+                sexo = v.Paciente.Sexo,
+                fechaNacimiento = v.Paciente.FechaNacimiento,
                 grupoRiesgo = v.GrupoRiesgo
             }).ToList();
 

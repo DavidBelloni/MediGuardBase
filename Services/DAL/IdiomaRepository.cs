@@ -39,41 +39,6 @@ namespace Services.DAL
             path = Path.Combine(folderPath, fileName);
         }
 
-        //public string Traducir(string word)
-        //{
-        //    // Obtener la cultura actual del sistema o una cultura predeterminada
-        //    string cultura = CultureInfo.CurrentCulture.Name; // Ejemplo: "es-ES"
-
-        //    string localPath = $"{path}.{cultura}";
-
-        //    if (!File.Exists(localPath))
-        //    {
-        //        throw new FileNotFoundException($"El archivo de idioma para la cultura '{cultura}' no fue encontrado.");
-        //    }
-
-        //    using (StreamReader sr = new StreamReader(localPath))
-        //    {
-        //        while (!sr.EndOfStream)
-        //        {
-        //            string line = sr.ReadLine();
-
-        //            string[] strings = line.Split('=');
-        //            if (strings.Length != 2) continue; // Validar formato correcto
-
-        //            string key = strings[0];
-        //            string value = strings[1];
-
-        //            if (key.Equals(word, StringComparison.OrdinalIgnoreCase))
-        //            {
-        //                return value;
-        //            }
-        //        }
-        //    }
-
-        //    throw new KeyNotFoundException($"La palabra '{word}' no fue encontrada en el archivo de idioma para la cultura '{cultura}'.");
-        //}
-
-        // METODO VIEJO DONDE SE PASABA LA CULTURA
         public string Traducir(string word)
         {
             try

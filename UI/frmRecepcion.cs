@@ -78,14 +78,14 @@ namespace UI
                 if (paciente != null)
                 {
                     // Si el paciente existe, cargar los datos en el formulario
-                    txtNombre.Text = paciente.nombre;
-                    txtApellido.Text = paciente.apellido;
-                    txtEmail.Text = paciente.email;
-                    txtCel.Text = paciente.celular;
-                    cbSexo.SelectedIndex = (int)paciente.sexo;
-                    cbTipoCobertura.SelectedIndex = (int)paciente.tipoCobertura;
-                    txtCobertura.Text = paciente.coberturaMedica;
-                    dtpFechaNacimiento.Value = paciente.fechaNacimiento;
+                    txtNombre.Text = paciente.Nombre;
+                    txtApellido.Text = paciente.Apellido;
+                    txtEmail.Text = paciente.Email;
+                    txtCel.Text = paciente.Celular;
+                    cbSexo.SelectedIndex = (int)paciente.Sexo;
+                    cbTipoCobertura.SelectedIndex = (int)paciente.TipoCobertura;
+                    txtCobertura.Text = paciente.CoberturaMedica;
+                    dtpFechaNacimiento.Value = paciente.FechaNacimiento;
 
                     MessageBox.Show("Paciente encontrado.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -137,16 +137,16 @@ namespace UI
 
                 var paciente = new Paciente
                 {
-                    numeroDocumento = int.Parse(txtDocumento.Text),
-                    tipoDocumento = (Enums.TipoDocumento)Enum.Parse(typeof(Enums.TipoDocumento), cbTipoDocumento.Text),
-                    nombre = txtNombre.Text,
-                    apellido = txtApellido.Text,
-                    email = txtEmail.Text,
-                    celular = txtCel.Text,
-                    sexo = (Enums.Sexo)Enum.Parse(typeof(Enums.Sexo), cbSexo.Text),
-                    tipoCobertura = (Enums.TipoCobertura)Enum.Parse(typeof(Enums.TipoCobertura), cbTipoCobertura.Text),
-                    fechaNacimiento = dtpFechaNacimiento.Value,
-                    coberturaMedica = txtCobertura.Text,
+                    NumeroDocumento = int.Parse(txtDocumento.Text),
+                    TipoDocumento = (Enums.TipoDocumento)Enum.Parse(typeof(Enums.TipoDocumento), cbTipoDocumento.Text),
+                    Nombre = txtNombre.Text,
+                    Apellido = txtApellido.Text,
+                    Email = txtEmail.Text,
+                    Celular = txtCel.Text,
+                    Sexo = (Enums.Sexo)Enum.Parse(typeof(Enums.Sexo), cbSexo.Text),
+                    TipoCobertura = (Enums.TipoCobertura)Enum.Parse(typeof(Enums.TipoCobertura), cbTipoCobertura.Text),
+                    FechaNacimiento = dtpFechaNacimiento.Value,
+                    CoberturaMedica = txtCobertura.Text,
                 };
 
                 var grupoRiesgo = cbGrupoRiesgo.Text;

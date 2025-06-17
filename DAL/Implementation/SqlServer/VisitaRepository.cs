@@ -71,11 +71,11 @@ namespace DAL.Implementation.SqlServer
             // Consulta SQL para obtener todas las visitas con el estado especificado
             string commandText = @"
                 SELECT v.*, 
-                       p.nombre AS PacienteNombre, 
-                       p.apellido AS PacienteApellido, 
-                       p.numeroDocumento AS PacienteDocumento, 
-                       p.sexo AS PacienteSexo, 
-                       p.fechaNacimiento AS PacienteFechaNacimiento
+                       p.Nombre AS PacienteNombre, 
+                       p.Apellido AS PacienteApellido, 
+                       p.NumeroDocumento AS PacienteDocumento, 
+                       p.Sexo AS PacienteSexo, 
+                       p.FechaNacimiento AS PacienteFechaNacimiento
                 FROM Visita v
                 INNER JOIN Paciente p ON v.IdPaciente = p.IdPaciente
                 WHERE v.estadoVisita = @estadoVisita";
@@ -107,11 +107,11 @@ namespace DAL.Implementation.SqlServer
                             // Datos del paciente relacionados
                             Paciente = new Paciente
                             {
-                                nombre = reader.GetString(reader.GetOrdinal("PacienteNombre")),
-                                apellido = reader.GetString(reader.GetOrdinal("PacienteApellido")),
-                                numeroDocumento = reader.GetInt32(reader.GetOrdinal("PacienteDocumento")),
-                                sexo = (Sexo)reader.GetInt32(reader.GetOrdinal("PacienteSexo")),
-                                fechaNacimiento = reader.GetDateTime(reader.GetOrdinal("PacienteFechaNacimiento"))
+                                Nombre = reader.GetString(reader.GetOrdinal("PacienteNombre")),
+                                Apellido = reader.GetString(reader.GetOrdinal("PacienteApellido")),
+                                NumeroDocumento = reader.GetInt32(reader.GetOrdinal("PacienteDocumento")),
+                                Sexo = (Sexo)reader.GetInt32(reader.GetOrdinal("PacienteSexo")),
+                                FechaNacimiento = reader.GetDateTime(reader.GetOrdinal("PacienteFechaNacimiento"))
                             }
                         };
                         visitas.Add(visita);

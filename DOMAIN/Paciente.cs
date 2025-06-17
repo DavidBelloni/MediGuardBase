@@ -9,26 +9,21 @@ namespace DOMAIN
 {
     public class Paciente
     {
-        public Guid idPaciente { get; set; }
-        public TipoDocumento tipoDocumento { get; set; }
-        public int numeroDocumento { get; set; }
-        public string nombre { get; set; }
-        public string apellido { get; set; }
-        public string celular { get; set; }
-        public string email { get; set; }
-        public Sexo sexo { get; set; }
-        public DateTime fechaNacimiento { get; set; }
-        public string coberturaMedica { get; set; }
-        public TipoCobertura tipoCobertura { get; set; }
-        public DateTime fechaCreacion { get; set; }
+        public Guid IdPaciente { get; set; }
+        public TipoDocumento TipoDocumento { get; set; }
+        public int NumeroDocumento { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public string Celular { get; set; }
+        public string Email { get; set; }
+        public Sexo Sexo { get; set; }
+        public DateTime FechaNacimiento { get; set; }
+        public string CoberturaMedica { get; set; }
+        public TipoCobertura TipoCobertura { get; set; }
+        public DateTime FechaCreacion { get; set; }
 
         public Paciente()
         {
-        }
-
-        public bool Any()
-        {
-            throw new NotImplementedException();
         }
     }
 }

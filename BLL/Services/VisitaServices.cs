@@ -40,7 +40,7 @@ namespace BLL.Services
             Paciente pacienteFinal;
 
             // Validar si el paciente ya existe 
-            var pacienteExistente = pacienteLogic.GetPacienteByDni(paciente.numeroDocumento, paciente.tipoDocumento);
+            var pacienteExistente = pacienteLogic.GetPacienteByDni(paciente.NumeroDocumento, paciente.TipoDocumento);
 
             if (pacienteExistente == null)
             {
@@ -56,7 +56,7 @@ namespace BLL.Services
             // Registrar la visita
             var visita = new Visita
             {
-                IdPaciente = pacienteFinal.idPaciente,
+                IdPaciente = pacienteFinal.IdPaciente,
                 GrupoRiesgo = (GrupoRiesgo)Enum.Parse(typeof(GrupoRiesgo), grupoRiesgo),
             };
 

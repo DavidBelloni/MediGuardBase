@@ -42,15 +42,15 @@ namespace BLL.Services
         public bool ValidarDatosPaciente(Paciente paciente, string grupoRiesgo)
         {
             // Validar que todos los campos obligatorios estén completos
-            if (string.IsNullOrWhiteSpace(paciente.nombre) ||
-                string.IsNullOrWhiteSpace(paciente.apellido) ||
-                string.IsNullOrWhiteSpace(paciente.celular) ||
-                string.IsNullOrWhiteSpace(paciente.email) ||
-                string.IsNullOrWhiteSpace(paciente.coberturaMedica) ||
+            if (string.IsNullOrWhiteSpace(paciente.Nombre) ||
+                string.IsNullOrWhiteSpace(paciente.Apellido) ||
+                string.IsNullOrWhiteSpace(paciente.Celular) ||
+                string.IsNullOrWhiteSpace(paciente.Email) ||
+                string.IsNullOrWhiteSpace(paciente.CoberturaMedica) ||
                 string.IsNullOrWhiteSpace(grupoRiesgo) ||
-                paciente.sexo < 0 || // Comprobación si sexo no está definido
-                paciente.tipoCobertura < 0 ||  // Comprobación si cobertura no está definida
-                paciente.tipoDocumento < 0) // Comprobación si tipo de documento no está definido
+                paciente.Sexo < 0 || // Comprobación si sexo no está definido
+                paciente.TipoCobertura < 0 ||  // Comprobación si cobertura no está definida
+                paciente.TipoDocumento < 0) // Comprobación si tipo de documento no está definido
             {
                 return false;
             }

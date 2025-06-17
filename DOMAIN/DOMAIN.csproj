@@ -48,6 +48,8 @@
     <Compile Include="Paciente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="NumeroAtencion.cs" />
+    <Compile Include="Sala.cs" />
+    <Compile Include="TipoSala.cs" />
     <Compile Include="Triage.cs" />
     <Compile Include="Visita.cs" />
     <Compile Include="VisitaPacienteViewModel.cs" />
